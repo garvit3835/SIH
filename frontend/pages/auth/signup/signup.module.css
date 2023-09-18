@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap');
+
 .title {
   font-family: 'Poppins', sans-serif;
   font-size: 35px;
@@ -8,41 +9,53 @@
   color: gray;
   font-size: 13px;
 }
+
 .signupMain {
   display: flex;
   flex: 1;
   height: 100vh;
+  justify-content: center;
 }
-.signupMain > .left {
+
+.signupMain>.left {
   min-width: 50%;
   height: inherit;
 }
-.signupMain > .right {
+
+.signupMain>.right {
   min-width: 50%;
   height: inherit;
   flex-direction: column;
 }
+
 .signupImg {
   height: 90%;
 }
+
 .left-Patient {
   background-color: var(--p1);
 }
+
 .right-Patient {
   background-color: var(--p0);
 }
+
 .left-Doctor {
   background-color: var(--d4);
 }
+
 .right-Doctor {
   background-color: var(--d1);
 }
+
 .left-Hospital {
   background-color: var(--h4);
 }
+
 .right-Hospital {
   background-color: var(--h1);
 }
+
 .rightMain {
   min-width: 80%;
   min-height: 80%;
@@ -50,81 +63,97 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
-.logoContainer
- {
+
+.logoContainer {
   display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
- } 
- .form {
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.form {
   max-width: 65%;
   display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 20px;
- }
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
 
- .selectionBox {
+.selectionBox {
   max-width: 200px;
   padding-top: 20px;
- }
- .signupBtn {
-  background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
- }
- .signupBtn:hover {
-  background: rgba( 255, 255, 255, 1 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 0px );
--webkit-backdrop-filter: blur( 0px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
- }
- .googleContainer {
+}
+
+.signupBtn {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 30%;
+  min-width: 30%;
+  transition: background 0.5s;
+}
+
+.signupBtn:hover {
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.googleContainer {
   flex-direction: column;
   height: 80px;
   justify-content: space-between;
- }
- .googleBtn {
+}
+
+.googleBtn {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 25px;
-    margin-top: 10px;
-    width: 50px;
-    height: 80px;
-    border: 1px solid;
-    justify-content: center;
-    padding: 12px;
-    background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
- }
- .googleBtn:hover {
-  background: rgba( 255, 255, 255, 1 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 0px );
--webkit-backdrop-filter: blur( 0px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
- }
- .inp {
+  margin-top: 10px;
+  width: 50px;
+  height: 80px;
+  border: 1px solid;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.5s;
+}
+
+.googleBtn:hover {
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.inp {
   border: 2px solid black;
- }
- .link {
+  background-color: #F7FAFC
+}
+
+.link {
   color: blue;
- }
- @media screen and (max-width: 660px) {
-  .signupMain > .left {
+}
+
+@media screen and (max-width: 660px) {
+  .signupMain>.left {
     display: none;
   }
 }

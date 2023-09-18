@@ -21,7 +21,7 @@ const Signup = () => {
             {
               role && (
                 <motion.img
-                key={role}
+                  key={role}
                   src={`/images/${role}.svg`}
                   alt=""
                   className={styles.signupImg}
@@ -89,7 +89,7 @@ const Signup = () => {
                 </Select>
               </div>
             </FormControl>
-            <Button colorScheme='blue' variant='outline' className={styles.signupBtn}>Signup</Button>
+            <Button colorScheme={role === "Patient" ? "teal" : (role === "Doctor" ? "purple" : "orange")} variant='outline' className={styles.signupBtn}>Signup</Button>
             <Center className={styles.googleContainer}>
 
               <p className={styles.p}>Or</p>
