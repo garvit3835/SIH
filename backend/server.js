@@ -4,8 +4,8 @@ const port = 3000
 const cors = require('cors');
 
 const patientRouter = require('./routes/patients');
-// const patientRouter = require('./routes/patients');
-// const patientRouter = require('./routes/patients');
+const doctorRouter = require('./routes/doctors');
+const hospitalRouter = require('./routes/hospital');
 
 app.use(cors({
   origin : '*'
