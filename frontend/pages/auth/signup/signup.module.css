@@ -1,0 +1,34 @@
+.signupMain {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+}
+.signupMain > .left {
+  min-width: 50%;
+  height: inherit;
+}
+.signupMain > .right {
+  min-width: 50%;
+  height: inherit;
+}
+.left-Patient {
+  background-color: var(--p1);
+}
+.right-Patient {
+  background-color: var(--p0);
+}
+.left-Doctor {
+  background-color: var(--d4);
+}
+.right-Doctor {
+  background-color: var(--d1);
+}
+.left-Hospital {
+  background-color: var(--h4);
+}
+.right-Hospital {
+  background-color: var(--h1);
+}
+/* .signupImg {
+  max-width: ;
+} */
