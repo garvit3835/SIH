@@ -1,11 +1,18 @@
 const express = require('express');
-const { encrypt } = require('../utils/encrypt');
-const { assignToken } = require('../utils/jwt');
+const { encrypt, checkCreds } = require('../utils/encrypt');
+const { assignToken, checkToken } = require('../utils/jwt');
 const router = express.Router();
 
 router.post('/login',(req,res)=>{
-    assignToken(user,'2h').then((token)=>{
-        console.log("token",token);
+    checkCreds(username,password).then((verify)=>{
+        if(verify){
+            assignToken(user,'4h').then((token)=>{
+                res.status(200).send({token:token})
+            })
+        }
+        else{
+            res.sendStatus(401);
+        }
     })
 })
 
@@ -16,10 +23,14 @@ router.post('/signup',(req,res)=>{
         console.log("Hashed: ",pass);
     })
 
-    assignToken(user,'2h').then((token)=>{
-        console.log("token",token);
+    assignToken(user,'4h').then((token)=>{
+        res.status(200).send({token:token})
     })
 
+})
+
+router.post('/check',checkToken,(req,res)=>{
+    res.send({message:'OK'});
 })
 
 module.exports = router;
