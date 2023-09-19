@@ -11,7 +11,7 @@ exports.assignToken = async function(data,expires){
 exports.checkToken = async function(req,res,next){
     console.log(req.headers);
     const authHeader = req.headers.authorization;
-    if(header){
+    if(authHeader){
         const token = authHeader.split(' ')[1];
         jwt.verify(token,privatekey,(err,result)=>{
             if(err){
