@@ -47,7 +47,7 @@ const Signup = () => {
               src={`/images/${role}.svg`}
               alt=""
               className={styles.signupImg}
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{
                 y: 0,
                 opacity: 1,

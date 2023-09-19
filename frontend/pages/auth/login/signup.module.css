@@ -1,8 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap");
 
 .title {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
+}
+
+.title-patient {
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
+  color: var(--chakra-colors-teal-800);
+}
+
+.title-doctor {
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
+  color: var(--chakra-colors-purple-800);
+}
+
+.title-hospital {
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
+  color: var(--chakra-colors-yellow-800);
 }
 
 .p {
@@ -17,58 +35,76 @@
   justify-content: center;
 }
 
-.signupMain>.left {
+.signupMain > .left {
   min-width: 50%;
   height: inherit;
 }
 
-.signupMain>.right {
+.signupMain > .right {
   min-width: 50%;
   height: inherit;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .signupImg {
   height: 90%;
 }
 
-.left-Patient {
+.left-patient {
   background-color: var(--p1);
 }
 
-.right-Patient {
+.right-patient {
   background-color: var(--p0);
 }
 
-.left-Doctor {
+.left-doctor {
   background-color: var(--d4);
 }
 
-.right-Doctor {
+.right-doctor {
   background-color: var(--d1);
 }
 
-.left-Hospital {
+.left-hospital {
   background-color: var(--h4);
 }
 
-.right-Hospital {
+.right-hospital {
   background-color: var(--h1);
+}
+
+.rightAll {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top: 2rem;
 }
 
 .rightMain {
   min-width: 80%;
-  min-height: 80%;
+  /* min-height: 80%; */
   /* background-color: blue; */
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 1.2rem;
+}
+
+.heading {
+  text-align: center;
+  margin: 1.5rem 0;
+  margin-top: 2rem;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding-top: 10px;
+  padding-top: 3rem;
   padding-left: 10px;
 }
 
@@ -86,8 +122,9 @@
 }
 
 .signupBtn {
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: var(--chakra-colors-teal-400);
+  color: var(--chakra-colors-teal-50);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
@@ -98,8 +135,22 @@
 }
 
 .signupBtn:hover {
+  color: black;
+}
 
+.patient .signupBtn {
+  background: var(--chakra-colors-teal-400);
+}
 
+.doctor .signupBtn {
+  background: var(--chakra-colors-purple-400);
+}
+
+.hospital .signupBtn {
+  background: var(--chakra-colors-yellow-500);
+}
+
+.signupBtn:hover {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -132,12 +183,9 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: background 0.5s;
-
 }
 
 .googleBtn:hover {
-
-
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -147,8 +195,8 @@
 }
 
 .inp {
-  border: 2px solid black;
-  background-color: #F7FAFC
+  border: 2px solid rgb(208, 208, 208);
+  background-color: #f7fafc;
 }
 
 .link {
@@ -156,12 +204,45 @@
 }
 
 @media screen and (max-width: 660px) {
-  .signupMain>.left {
+  .signupMain > .left {
     display: none;
+  }
+
+  .signupBtn {
+    width: 100%;
+    max-width: 65%;
   }
 }
 
-/* .btnContainer {
-  display: flex;
-  
-} */
+.tabs {
+  margin: 1.5rem 0;
+  border-color: var(--chakra-colors-gray-300);
+}
+
+.tab.patientTab[aria-selected="true"] {
+  color: var(--chakra-colors-teal-900);
+}
+
+.tab.doctorTab[aria-selected="true"] {
+  color: var(--chakra-colors-purple-900);
+}
+
+.tab.hospitalTab[aria-selected="true"] {
+  color: var(--chakra-colors-yellow-900);
+}
+
+.tabList {
+  margin-bottom: 2rem;
+}
+
+.patient .icon {
+  color: var(--chakra-colors-teal-700);
+}
+
+.doctor .icon {
+  color: var(--chakra-colors-purple-700);
+}
+
+.hospital .icon {
+  color: var(--chakra-colors-yellow-700);
+}
