@@ -27,6 +27,7 @@ import {
 } from "react-icons/ai";
 import styles from "pages/auth/signup/signup.module.css";
 import { useState } from "react";
+import routes from "../../routes";
 
 const SignupForm = ({ role }) => {
   const [show1, setShow1] = useState(false);
@@ -142,8 +143,8 @@ const SignupForm = ({ role }) => {
     </button> */}
         <p className={styles.p}>
           Already have an account?{" "}
-          <Link className={styles.link} href="/auth/login">
-            Click here
+          <Link className={styles.link} href={routes.LOGIN}>
+            Login here
           </Link>
         </p>
       </Center>
