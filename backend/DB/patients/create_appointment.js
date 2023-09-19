@@ -29,3 +29,5 @@ const create_appointment = async (
 		await pool.end();
 	}
 };
+
+module.exports = create_appointment;

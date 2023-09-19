@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
 }
 
 code {
@@ -28,4 +29,5 @@ code {
   --h4: #ed8936;
   --h1: #feebcb;
   --h0: #fffaf0;
+  --font1: font-family: 'Poppins', sans-serif;
 }

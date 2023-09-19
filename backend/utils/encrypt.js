@@ -1,20 +1,14 @@
 const bcrypt = require('bcrypt');
-const saltRound = 10;
 
-exports.encrypt = async function (password){
+exports.encrypt = async function (password,salt){
 
-    // bcrypt.genSalt(saltRound,(err,salt)=>{
-    //     console.log("Salt: ",salt)
-    //     bcrypt.hash(password,salt,(err,hash)=>{
-    //         console.log("Hash: ",hash);
-    //         return hash;
-    //     })
-    // })
-
-    let hashed = "";
-    await bcrypt.hash(password,saltRound).then((hash)=>{
-        console.log("Hash: ",hash);
-        hashed = hash;
+    return await bcrypt.hash(password,salt).then((hash)=>{
+        return hash;
     })
-    return hashed;
+
 }
+
+exports.checkCreds = async function(user,password){
+    return await bcrypt.compare(password, dbpass);
+}
+
