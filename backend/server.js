@@ -14,7 +14,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.use('/patient',patientRouter)
+app.use('/patient',patientRouter);
+app.use('/doctors',doctorRouter);
+app.use('/hospital',hospitalRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
