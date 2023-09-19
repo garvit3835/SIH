@@ -1,6 +1,6 @@
 const express = require('express');
 const { encrypt, checkCreds } = require('../utils/encrypt');
-const { assignToken } = require('../utils/jwt');
+const { assignToken, checkToken } = require('../utils/jwt');
 const router = express.Router();
 
 router.post('/login',async (req,res)=>{
@@ -19,7 +19,7 @@ router.post('/login',async (req,res)=>{
 })
 
 router.post('/signup',(req,res)=>{
-    const {username,password,phone,family,policy,address,location,diseases} = req.body;
+    const {username,password,name,phone,family,policy,address,location,diseases} = req.body;
 
     encrypt(password,10).then((pass)=>{
         console.log("Hashed: ",pass);
