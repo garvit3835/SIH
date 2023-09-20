@@ -9,9 +9,9 @@ const signup_patient = async (name, number, gender, family, address, latitude, l
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result;
+    return result.rows;
   } catch (error) {
-    console.error('Error creating table:', error);
+    console.error(error);
   }
 };
 

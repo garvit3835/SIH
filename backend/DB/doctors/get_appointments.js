@@ -6,10 +6,12 @@ const get_appointments = async (d_id) => {
 	const values = [d_id, today];
 	await pool.connect();
 	try {
-    const result = await pool.query(query, values);
-    return result;
-	} finally {
-		await pool.end();
+    const client = await pool.connect();
+    const result = await client.query(query, values);
+    client.release();
+    return result.rows;
+  } catch (error) {
+    console.error(error);
   }
 };
 
