@@ -255,6 +255,13 @@
   dependencies:
     "@chakra-ui/shared-utils" "2.0.5"
 
+"@chakra-ui/icons@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.1.1.tgz#58ff0f9e703f2f4f89debd600ce4e438f43f9c9a"
+  integrity sha512-3p30hdo4LlRZTT5CwoAJq3G9fHI0wDc0pBaMHj4SUn0yomO+RcDRlzhdXqdr5cVnzax44sqXJVnf3oQG0eI+4g==
+  dependencies:
+    "@chakra-ui/icon" "3.2.0"
+
 "@chakra-ui/image@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@chakra-ui/image/-/image-2.1.0.tgz#6c205f1ca148e3bf58345b0b5d4eb3d959eb9f87"
@@ -1104,6 +1111,19 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/cookie@^0.5.1":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.5.2.tgz#9bf9d62c838c85a07c92fdf2334c2c14fd9c59a9"
+  integrity sha512-DBpRoJGKJZn7RY92dPrgoMew8xCWc2P71beqsjyhEI/Ds9mOyVmBwtekyfhpwFIVt1WrxTonFifiOZ62V8CnNA==
+
+"@types/hoist-non-react-statics@^3.3.1":
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#dc1e9ded53375d37603c479cc12c693b0878aa2a"
+  integrity sha512-YIQtIg4PKr7ZyqNPZObpxfHsHEmuB8dXCxd6qVcGuQVDK2bpsF7bYNnBJ4Nn7giuACZg+WewExgrtAJ3XnA4Xw==
+  dependencies:
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
+
 "@types/lodash.mergewith@4.6.7":
   version "4.6.7"
   resolved "https://registry.yarnpkg.com/@types/lodash.mergewith/-/lodash.mergewith-4.6.7.tgz#eaa65aa5872abdd282f271eae447b115b2757212"
@@ -1130,6 +1150,15 @@
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
+
+"@types/react@*":
+  version "18.2.22"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.22.tgz#abe778a1c95a07fa70df40a52d7300a40b949ccb"
+  integrity sha512-60fLTOLqzarLED2O3UQImc/lsNRgG0jE/a1mPW9KjMemY0LMITWEsbS4VvZ4p6rorEHd5YKxxmMKSDK505GHpA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
 
 "@types/react@18.2.21":
   version "18.2.21"
@@ -1343,6 +1372,11 @@ convert-source-map@^1.5.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.9.0.tgz#7faae62353fb4213366d0ca98358d22e8368b05f"
   integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
 
+cookie@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
+  integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+
 copy-to-clipboard@3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz#55ac43a1db8ae639a4bd99511c148cdd1b83a1b0"
@@ -1546,7 +1580,7 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hoist-non-react-statics@^3.3.1:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -1621,6 +1655,11 @@ jiti@^1.18.2:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.20.0.tgz#2d823b5852ee8963585c8dd8b7992ffc1ae83b42"
   integrity sha512-3TV69ZbrvV6U5DfQimop50jE9Dl6J8O1ja1dvBbMba/sZ3YBEQqJ2VZRoQPVnhlzjNtU1vaXRZVrVjU4qtm8yA==
+
+js-cookie@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -1879,6 +1918,15 @@ react-clientside-effect@^1.2.6:
   dependencies:
     "@babel/runtime" "^7.12.13"
 
+react-cookie@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/react-cookie/-/react-cookie-6.1.1.tgz#af61c82ea7f41119d3cf8fd3534f8b6c0408f350"
+  integrity sha512-fuFRpf8LH6SfmVMowDUIRywJF5jAUDUWrm0EI5VdXfTl5bPcJ7B0zWbuYpT0Tvikx7Gs18MlvAT+P+744dUz2g==
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.3.1"
+    hoist-non-react-statics "^3.3.2"
+    universal-cookie "^6.0.0"
+
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -1903,6 +1951,11 @@ react-focus-lock@^2.9.4:
     react-clientside-effect "^1.2.6"
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
+
+react-icons@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.11.0.tgz#4b0e31c9bfc919608095cc429c4f1846f4d66c65"
+  integrity sha512-V+4khzYcE5EBk/BvcuYRq6V/osf11ODUM2J8hg2FDSswRrGvqiYUYPRy4OdrWaQOBj4NcpJfmHZLNaD+VH0TyA==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
@@ -2131,6 +2184,14 @@ typescript@5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
+
+universal-cookie@^6.0.0:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-6.1.1.tgz#2d619e21804c93b39ff0c77fe47dafd7a492346d"
+  integrity sha512-33S9x3CpdUnnjwTNs2Fgc41WGve2tdLtvaK2kPSbZRc5pGpz2vQFbRWMxlATsxNNe/Cy8SzmnmbuBM85jpZPtA==
+  dependencies:
+    "@types/cookie" "^0.5.1"
+    cookie "^0.5.0"
 
 update-browserslist-db@^1.0.11:
   version "1.0.11"

@@ -1,0 +1,24 @@
+.header {
+  background-color: var(--clr-primary-50);
+  border-bottom: 2px solid var(--clr-primary-100);
+}
+
+.headerMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1rem;
+}
+
+.search {
+  flex: 1;
+}
+
+.bookBtn {
+  background-color: var(--clr-primary-100);
+}
+
+.bookBtn:hover {
+  background-color: var(--clr-primary-200);
+}

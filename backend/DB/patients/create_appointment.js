@@ -22,12 +22,14 @@ const create_appointment = async (
 		status,
 		prescription,
 	];
-	await pool.connect();
 	try {
-		await pool.query(query, values);
-	} finally {
-		await pool.end();
-	}
+    const client = await pool.connect();
+    const result = await client.query(query, values);
+    client.release();
+    return result.rows;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 module.exports = create_appointment;
