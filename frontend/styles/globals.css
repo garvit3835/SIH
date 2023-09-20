@@ -16,6 +16,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 :root {
   --p9: #1d4044;
   --p4: #38b2ac;
@@ -30,4 +31,43 @@ code {
   --h1: #feebcb;
   --h0: #fffaf0;
   --font1: font-family: 'Poppins', sans-serif;
+}
+
+.patient {
+  --clr-primary-50: var(--chakra-colors-teal-50);
+  --clr-primary-100: var(--chakra-colors-teal-100);
+  --clr-primary-200: var(--chakra-colors-teal-200);
+  --clr-primary-300: var(--chakra-colors-teal-300);
+  --clr-primary-400: var(--chakra-colors-teal-400);
+  --clr-primary-500: var(--chakra-colors-teal-500);
+  --clr-primary-600: var(--chakra-colors-teal-600);
+  --clr-primary-700: var(--chakra-colors-teal-700);
+  --clr-primary-800: var(--chakra-colors-teal-800);
+  --clr-primary-900: var(--chakra-colors-teal-900);
+}
+
+.doctor {
+  --clr-primary-50: var(--chakra-colors-purple-50);
+  --clr-primary-100: var(--chakra-colors-purple-100);
+  --clr-primary-200: var(--chakra-colors-purple-200);
+  --clr-primary-300: var(--chakra-colors-purple-300);
+  --clr-primary-400: var(--chakra-colors-purple-400);
+  --clr-primary-500: var(--chakra-colors-purple-500);
+  --clr-primary-600: var(--chakra-colors-purple-600);
+  --clr-primary-700: var(--chakra-colors-purple-700);
+  --clr-primary-800: var(--chakra-colors-purple-800);
+  --clr-primary-900: var(--chakra-colors-purple-900);
+}
+
+.hospital {
+  --clr-primary-50: var(--chakra-colors-yellow-50);
+  --clr-primary-100: var(--chakra-colors-yellow-100);
+  --clr-primary-200: var(--chakra-colors-yellow-200);
+  --clr-primary-300: var(--chakra-colors-yellow-300);
+  --clr-primary-400: var(--chakra-colors-yellow-400);
+  --clr-primary-500: var(--chakra-colors-yellow-500);
+  --clr-primary-600: var(--chakra-colors-yellow-600);
+  --clr-primary-700: var(--chakra-colors-yellow-700);
+  --clr-primary-800: var(--chakra-colors-yellow-800);
+  --clr-primary-900: var(--chakra-colors-yellow-900);
 }

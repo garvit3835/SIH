@@ -34,7 +34,7 @@ const AppProvider = ({ children }) => {
   // Restrict Page Accessibiliy by Page Redirection
   useEffect(() => {
     if (protectedRoutes.includes(router.pathname)) {
-      router.push(routes.LOGIN);
+      if (!authInfo.isAuthenticated) router.push(routes.LOGIN);
     }
   }, [authInfo]);
 

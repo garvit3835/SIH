@@ -2,21 +2,13 @@ import cn from "classnames";
 
 import {
   Center,
-  Image,
   Input,
   FormControl,
-  FormLabel,
   Button,
-  Select,
   InputGroup,
   InputLeftElement,
   InputRightElement,
   Link,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
 } from "@chakra-ui/react";
 
 import {
