@@ -12,11 +12,12 @@ import {
     Stepper,
     useSteps,
   } from '@chakra-ui/react'
+  import styles from 'pages/auth/patientForm/patientForm.module.css'
 const MyStepper = (props) => {
     const {page} = props
     const steps = [
         { title: 'Contact Info' },
-        { title: 'Medical Prescription'  },
+        { title: 'Medical Report'  },
         { title: 'Location Access' },
       ]
       const { activeStep, setActiveStep } = useSteps({
@@ -25,13 +26,15 @@ const MyStepper = (props) => {
       })
       useEffect(()=> {
         
-        console.log("activeStep: ",activeStep)
-        console.log("page: ",page)
+        // console.log("activeStep: ",activeStep)
+        // console.log("page: ",page)
         setActiveStep(page+1);
       },[page])
   return (
     <>
-      <Stepper size='lg' index={page} minW={"50%"} colorScheme='teal'>
+    
+
+      <Stepper size='md' index={page}  colorScheme='teal' >
       {steps.map((step, index) => (
         <Step key={index} >
           <StepIndicator>
@@ -51,6 +54,7 @@ const MyStepper = (props) => {
         </Step>
       ))}
     </Stepper>
+    
     </>
   )
 }
