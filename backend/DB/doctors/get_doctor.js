@@ -1,8 +1,7 @@
 const pool = require("../../config/connect_db");
 
 const get_doctor = async (d_id) => {
-	const query = `SELECT * FROM doctors WHERE d_id = $1 LIMIT 1;
-  `;
+	const query = `SELECT * FROM doctors WHERE d_id = $1 LIMIT 1;`;
 	const values = [d_id];
 	try {
     const client = await pool.connect();
