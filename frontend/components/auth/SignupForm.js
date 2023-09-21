@@ -124,8 +124,12 @@ const SignupForm = ({ role }) => {
         }
         variant="outline"
         className={styles.signupBtn}
+        
       >
+        <Link href="/auth/patientForm">
+        
         Signup
+        </Link>
       </Button>
       <Center className={styles.googleContainer}>
         <p className={styles.p}>Or</p>
