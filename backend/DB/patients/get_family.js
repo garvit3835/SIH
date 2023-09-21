@@ -1,10 +1,9 @@
 const pool = require("../../config/connect_db");
 
-const insert_patient_creds = async (username, password) => {
-	const query = `INSERT INTO patient_creds (username, password)
-  VALUES ($1, $2);
+const get_family = async (family) => {
+	const query = `SELECT * FROM patients WHERE family = $1;
   `;
-	const values = [username, password];
+	const values = [family];
 	try {
     const client = await pool.connect();
     const result = await client.query(query, values);
@@ -15,4 +14,4 @@ const insert_patient_creds = async (username, password) => {
   }
 };
 
-module.exports = insert_patient_creds;
+module.exports = get_family;

@@ -15,4 +15,6 @@ const signup_patient = async (name, number, gender, family, address, latitude, l
   }
 };
 
+
+
 module.exports = signup_patient;

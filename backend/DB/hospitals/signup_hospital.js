@@ -1,10 +1,10 @@
 const pool = require("../../config/connect_db");
 
-const signup_hospital = async (name, number, address, latitude, longitude) => {
-	const query = `INSERT INTO hospitals (name, number, address, latitude, longitude)
-  VALUES ($1, $2, $3, $4, $5);
+const signup_hospital = async (h_id, name, number, address, latitude, longitude) => {
+	const query = `INSERT INTO hospitals (h_id, name, number, address, latitude, longitude)
+  VALUES ($1, $2, $3, $4, $5, $6);
   `;
-	const values = [name, number, address, latitude, longitude];
+	const values = [h_id, name, number, address, latitude, longitude];
 	try {
     const client = await pool.connect();
     const result = await client.query(query, values);
@@ -14,5 +14,7 @@ const signup_hospital = async (name, number, address, latitude, longitude) => {
     console.error(error);
   }
 };
+
+signup_hospital(1, 'max', 2343243242, 'test', 0, 10)
 
 module.exports = signup_hospital;
