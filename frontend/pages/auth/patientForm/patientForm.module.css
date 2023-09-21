@@ -108,3 +108,30 @@
         margin-top: 40px;
     }
   }
+
+
+/* Medical record */
+.dragContainer {
+    min-width: 500px;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed teal;
+    background-color: #f7fafc;
+}
+.dropText {
+    font-size: 20px;
+    font-family: 'circular';
+    font-weight: 700;
+    color: teal;
+}
+.dragBox {
+    height: 150px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.fileBtnContainer {
+    border: 2px solid rgb(208, 208, 208);
+    padding: 10px;
+    border-radius: 10px;
+}
