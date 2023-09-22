@@ -10,6 +10,7 @@ router.post('/login',async (req,res)=>{
             assignToken(user,'1h').then((token)=>{
                 res.status(200).send({token:token})
             })
+
         }
         else{
             res.sendStatus(401);
@@ -18,8 +19,34 @@ router.post('/login',async (req,res)=>{
 
 })
 
-router.post('/signup',(req,res)=>{
+router.post('/signup/creds',(req,res)=>{
     const {username,password,name,phone,family,policy,address,location,diseases} = req.body;
+
+    encrypt(password,10).then((pass)=>{
+        console.log("Hashed: ",pass);
+    })
+
+    assignToken(username,'1h').then((token)=>{
+        res.status(200).send({token:token})
+    })
+
+})
+
+router.post('/signup/creds',(req,res)=>{
+    const {email,password} = req.body;
+
+    encrypt(password,10).then((pass)=>{
+        console.log("Hashed: ",pass);
+    })
+
+    assignToken(username,'1h').then((token)=>{
+        res.status(200).send({token:token})
+    })
+
+})
+
+router.post('/signup/info',(req,res)=>{
+    const {name,phone,family,policy,address,location,diseases} = req.body;
 
     encrypt(password,10).then((pass)=>{
         console.log("Hashed: ",pass);
