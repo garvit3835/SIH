@@ -9,8 +9,10 @@ import {
   InputLeftElement,
   InputRightElement,
   Link,
-} from "@chakra-ui/react";
+  FormErrorMessage,
 
+} from "@chakra-ui/react";
+import {validate} from 'email-validator'
 import {
   AiOutlineMail,
   AiFillEye,
@@ -26,10 +28,44 @@ const LoginForm = ({ role }) => {
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
   const handleClick2 = () => setShow2(!show2);
-
+  const [email,setEmail] = useState('')
+  const [pass,setPass] = useState('')
+  const [emailError,setEmailError] = useState({
+    status:false,
+    type:'',
+    msg:''
+  })
+  const [passError,setPassError] = useState({
+    status:false,
+    type:'',
+    msg:''
+  })
+  const changeEmailError = (status,type,msg)=> {
+    const newError = {
+      status,type,msg
+    }
+    setEmailError(newError)
+  }
+  const changePassError = (status,type,msg)=> {
+    const newError = {
+      status,type,msg
+    }
+    setPassError(newError)
+  }
+  const handleSubmit = ()=> {
+    if(!validate(email)) {
+      changeEmailError(true,'invalid email','Please enter a valid email')
+      return
+    }
+    else {
+      changePassError(false,'','');
+      changeEmailError(false,'','')
+      // API CALL
+    }
+  }
   return (
     <Center className={cn(styles.rightMain, styles[role])}>
-      <FormControl className={styles.form}>
+      <FormControl className={styles.form} isInvalid={emailError.status}>
         <InputGroup>
           <InputLeftElement pointerEvents="none">
             <AiOutlineMail className={styles.icon} />
@@ -49,6 +85,13 @@ const LoginForm = ({ role }) => {
             className={styles.inp}
           />
         </InputGroup>
+        {!emailError.status ? (
+        ""
+      ) : (
+        <FormErrorMessage>{emailError.msg}</FormErrorMessage>
+      )}
+        </FormControl>
+        <FormControl className={styles.form} isInvalid={passError.status}>
         <InputGroup>
           <InputLeftElement>
             <AiFillLock className={styles.icon} />
@@ -79,6 +122,11 @@ const LoginForm = ({ role }) => {
             )}
           </InputRightElement>
         </InputGroup>
+        {!passError.status ? (
+        ""
+      ) : (
+        <FormErrorMessage>{passError.msg}</FormErrorMessage>
+      )}
       </FormControl>
       <Button
         colorScheme={
@@ -86,6 +134,7 @@ const LoginForm = ({ role }) => {
         }
         variant="outline"
         className={styles.signupBtn}
+        onClick={()=>handleSubmit()}
       >
         Login
       </Button>

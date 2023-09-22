@@ -11,14 +11,33 @@ const patientForm = () => {
   const [page,changePage] = useState(0)
   const [load,setLoad] = useState(false)
   const [familyMember, setFamilyMember] = useState([])
+  const [FirstName,setFirstName] = useState('')
+  const [lastName,setLastName] = useState('')
+  const [phone,setPhone] = useState('')
+  const [file, setFile] = useState(null);
+  const [diseases,setDiseases] = useState([])
+  const [location,setLocation] = useState({
+    latitude:'',
+    longitude:''
+  })
+  // errors in form to be sorted
+  const [error,isError] = useState(true)
   const handlePrev = ()=> {
     changePage(page-1)
   }
   const handleNext = ()=> {
-    changePage(page+1)
+    if(!isError) {
+
+      changePage(page+1)
+    }
   }
   const handleSubmit = ()=> {
     setLoad(true);
+    const name = FirstName + ' ' + lastName
+    const obj = {
+      name,phone,file,diseases,location,familyMember
+    }
+    console.log(obj)
     setTimeout(() => {
       setLoad(false)
     }, 2000);
@@ -39,13 +58,13 @@ const patientForm = () => {
     <Flex flexDirection={'column'} justifyContent={'space-between'} height={250} className={styles.mid}>
 
     {
-      page===0 && <PatientContact familyMember={familyMember} setFamilyMember={setFamilyMember}/>
+      page===0 && <PatientContact isError={isError} familyMember={familyMember} setFamilyMember={setFamilyMember} FirstName={FirstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName} phone={phone} setPhone={setPhone}/>
     }
     {
-      page===1 && <MedicalRecord/>
+      page===1 && <MedicalRecord isError={isError} file={file} setFile={setFile} diseases={diseases} setDiseases={setDiseases}/>
     }
     {
-      page>=2 && <PatientLocation/>
+      page>=2 && <PatientLocation isError={isError} location={location} setLocation={setLocation}/>
     }
     </Flex>
     <Flex className={styles.cardContainer}>
