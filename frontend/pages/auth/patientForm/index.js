@@ -1,24 +1,41 @@
 import React, { useState } from 'react'
-import MyStepper from '../../../components/common/myStepper'
+import MyStepper from '/components/common/myStepper'
 import { Box, Button, Flex,Card,CardBody,Text } from '@chakra-ui/react'
 import styles from '../patientForm/patientForm.module.css'
 import PatientContact from '../../../components/auth/PatientContact'
 import MedicalRecord from '../../../components/auth/MedicalRecord'
 import PatientLocation from '../../../components/auth/PatientLocation'
 import { wrap } from 'framer-motion'
-
+import cn from "classnames";
 const patientForm = () => {
   const [page,changePage] = useState(0)
   const [load,setLoad] = useState(false)
   const [familyMember, setFamilyMember] = useState([])
+  const [FirstName,setFirstName] = useState('')
+  const [lastName,setLastName] = useState('')
+  const [phone,setPhone] = useState('')
+  const [file, setFile] = useState(null);
+  const [diseases,setDiseases] = useState([])
+  const [currentPos, setCurrentPos] = useState({ lat: 28.7041, lng: 77.1025 });
+
+  // errors in form to be sorted
+  const [error,isError] = useState(false)
   const handlePrev = ()=> {
     changePage(page-1)
   }
   const handleNext = ()=> {
-    changePage(page+1)
+    // if(!isError) {
+
+      changePage(page+1)
+    // }
   }
   const handleSubmit = ()=> {
     setLoad(true);
+    const name = FirstName + ' ' + lastName
+    const obj = {
+      name,phone,file,diseases,currentPos,familyMember
+    }
+    console.log(obj)
     setTimeout(() => {
       setLoad(false)
     }, 2000);
@@ -36,16 +53,16 @@ const patientForm = () => {
     <MyStepper page={page}/>
     </div>
 
-    <Flex flexDirection={'column'} justifyContent={'space-between'} height={250} className={styles.mid}>
+    <Flex flexDirection={'column'} justifyContent={'space-between'} height={250} className={cn(styles.mid, { [styles.map]: page === 2 })}>
 
     {
-      page===0 && <PatientContact familyMember={familyMember} setFamilyMember={setFamilyMember}/>
+      page===0 && <PatientContact isError={isError} familyMember={familyMember} setFamilyMember={setFamilyMember} FirstName={FirstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName} phone={phone} setPhone={setPhone}/>
     }
     {
-      page===1 && <MedicalRecord/>
+      page===1 && <MedicalRecord isError={isError} file={file} setFile={setFile} diseases={diseases} setDiseases={setDiseases}/>
     }
     {
-      page>=2 && <PatientLocation/>
+      page>=2 && <PatientLocation isError={isError} setCurrentPos={setCurrentPos}/>
     }
     </Flex>
     <Flex className={styles.cardContainer}>
