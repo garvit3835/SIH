@@ -50,7 +50,7 @@ router.post('/signup/creds',(req,res)=>{
 
 router.post('/signup/info',checkToken,(req,res)=>{
     const {name,phone,family,policy,address,location,diseases} = req.body;
-    console.log(res.locals.authorization);
+    const p_id = res.locals.authorization;
 
 })
 
