@@ -14,12 +14,15 @@ import {
   MenuGroup,
   MenuItem,
   MenuList,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Navbar from "../Navbar";
+import BookAppointment from "../../Patient/BookAppointment";
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <div className={styles.header}>
       <Container className={styles.headerMain} maxW="container.lg">
@@ -32,9 +35,7 @@ const Header = () => {
           <Input type="tel" placeholder="Search a Doctor..." />
         </InputGroup>
 
-        <Button variant="solid" className={styles.bookBtn}>
-          Book Appointment
-        </Button>
+        <BookAppointment/>
 
         <Menu>
           <MenuButton>
