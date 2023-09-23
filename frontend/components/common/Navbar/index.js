@@ -1,9 +1,12 @@
-import React from "react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import routes from "../../../routes";
 import { useRouter } from "next/router";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
-const navRoutes = [routes.HOME, routes.DOCTORS, routes.REPORTS];
+import React from "react";
+import routes from "../../../routes";
+
+import styles from "./navbar.module.css";
+
+const navRoutes = [routes.PATIENT_HOME, routes.DOCTORS, routes.REPORTS];
 
 const Navbar = () => {
   const router = useRouter();
@@ -17,9 +20,9 @@ const Navbar = () => {
       defaultIndex={navRoutes.indexOf(router.pathname)}
     >
       <TabList style={{ border: "1px solid transparent" }}>
-        <Tab>Appointments</Tab>
-        <Tab>Doctors</Tab>
-        <Tab>Reports</Tab>
+        <Tab className={styles.tab}>Appointments</Tab>
+        <Tab className={styles.tab}>Doctors</Tab>
+        <Tab className={styles.tab}>Reports</Tab>
       </TabList>
     </Tabs>
   );
