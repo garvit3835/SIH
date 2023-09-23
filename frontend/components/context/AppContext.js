@@ -21,20 +21,20 @@ const AppProvider = ({ children }) => {
   const authInfo = useAuth();
 
   // Loader Handling on Page Switching
-  useEffect(() => {
-    router.events.on("routeChangeStart", enableLoader);
-    router.events.on("routeChangeComplete", disableLoader);
+  // useEffect(() => {
+  //   router.events.on("routeChangeStart", enableLoader);
+  //   router.events.on("routeChangeComplete", disableLoader);
 
-    return () => {
-      router.events.off("routeChangeStart", enableLoader);
-      router.events.off("routeChangeComplete", disableLoader);
-    };
-  }, []);
+  //   return () => {
+  //     router.events.off("routeChangeStart", enableLoader);
+  //     router.events.off("routeChangeComplete", disableLoader);
+  //   };
+  // }, []);
 
   // Restrict Page Accessibiliy by Page Redirection
   useEffect(() => {
     if (protectedRoutes.includes(router.pathname)) {
-      router.push(routes.LOGIN);
+      if (!authInfo.isAuthenticated) router.push(routes.LOGIN);
     }
   }, [authInfo]);
 

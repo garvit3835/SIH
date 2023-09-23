@@ -1,17 +1,17 @@
 const pool = require("../../config/connect_db");
 
-const insert_patient_creds = async (patient, username, password) => {
-	const query = `INSERT INTO patient_creds (patient, username, password)
-  VALUES ($1, $2, $3);
+const insert_patient_creds = async (username, password) => {
+	const query = `INSERT INTO patient_creds (username, password)
+  VALUES ($1, $2);
   `;
-	const values = [patient, username, password];
+	const values = [username, password];
 	try {
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result;
+    return result.rows;
   } catch (error) {
-    console.error('Error creating table:', error);
+    console.error(error);
   }
 };
 

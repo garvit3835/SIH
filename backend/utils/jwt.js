@@ -18,6 +18,7 @@ exports.checkToken = async function(req,res,next){
                 res.status(401).send({success:false,message:"Not Authenticated"});
             }
             else{
+                res.locals.authorization = result;
                 next();
             }
         })
