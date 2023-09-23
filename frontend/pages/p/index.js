@@ -1,5 +1,5 @@
 import Link from "next/link";
-import DashboardLayout from "../components/layouts/DashboardLayout";
+import DashboardLayout from "../../components/layouts/DashboardLayout";
 
 export default function Home() {
   return (
@@ -10,3 +10,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <DashboardLayout>{page}</DashboardLayout>;
+};
