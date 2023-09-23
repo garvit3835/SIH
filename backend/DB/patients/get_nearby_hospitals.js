@@ -30,7 +30,7 @@ const get_nearby_hospitals = async (p_id) => {
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    console.log(result.rows)
+    // console.log(result.rows)
     return result.rows;
   } catch (error) {
     console.error(error);
