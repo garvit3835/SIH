@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const get_patient_creds = require('../DB/patients/get_patient_creds');
 
 exports.encrypt = async function (password,salt){
 
@@ -8,7 +9,7 @@ exports.encrypt = async function (password,salt){
 
 }
 
-exports.checkCreds = async function(user,password){
+exports.checkCreds = async function(user,password,dbpass){
     return await bcrypt.compare(password, dbpass);
 }
 
