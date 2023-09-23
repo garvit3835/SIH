@@ -14,4 +14,7 @@ const insert_doctor_creds = async (username, password) => {
 	}
 };
 
+// insert_doctor_creds('', '')
+insert_doctor_creds('ak234', 'sfdsfs')
+
 module.exports = insert_doctor_creds;
