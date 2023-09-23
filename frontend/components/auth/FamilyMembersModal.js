@@ -59,7 +59,7 @@ const FamilyMembersModal = (props) => {
         <>
             <Button onClick={onOpen} className={styles.btns} mr={3}><AiOutlineUserAdd /></Button>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} motionPreset='slideInBottom'>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Family Member Details</ModalHeader>
