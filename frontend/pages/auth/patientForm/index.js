@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MyStepper from '../../../components/common/myStepper'
+import MyStepper from '/components/common/myStepper'
 import { Box, Button, Flex,Card,CardBody,Text } from '@chakra-ui/react'
 import styles from '../patientForm/patientForm.module.css'
 import PatientContact from '../../../components/auth/PatientContact'
