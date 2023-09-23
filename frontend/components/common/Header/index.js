@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./header.module.css";
 import {
+  Avatar,
   Button,
   Container,
+  Flex,
   Input,
   InputGroup,
   InputLeftElement,
@@ -23,7 +25,7 @@ const Header = () => {
       <Container className={styles.headerMain} maxW="container.lg">
         <div className={styles.logo}>MediBridge</div>
 
-        <InputGroup className={styles.search}>
+        <InputGroup className={styles.search} background="whiteAlpha.800">
           <InputLeftElement pointerEvents="none">
             <AiOutlineSearch />
           </InputLeftElement>
@@ -36,7 +38,12 @@ const Header = () => {
 
         <Menu>
           <MenuButton>
-            Profile <ChevronDownIcon />
+            <Flex justifyContent="center" alignItems="center" gap="0.5rem">
+              <Avatar name="Karanjot Singh" src="" size="sm" />{" "}
+              <span>
+                <ChevronDownIcon />{" "}
+              </span>
+            </Flex>
           </MenuButton>
           <MenuList>
             <MenuGroup title="Profile">
