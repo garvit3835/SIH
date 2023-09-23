@@ -1,28 +1,29 @@
-const { spawn } = require('child_process');
+const { spawn } = require("child_process");
 
-// Replace with the actual path to your FaceDetection.py script
-const pythonScriptPath = './ML/FaceDetection.py';
+const face_detection = (d_id) => {
+  return new Promise((resolve, reject) => {
+    const pythonScriptPath = "./ML/FaceDetection.py";
+    const pythonArgs = [d_id];
+    const pythonProcess = spawn("python", [pythonScriptPath, ...pythonArgs]);
 
-// Replace 'arnav' with the desired argument for your Python script
-const pythonArgs = ['arnav'];
+    let pythonOutput = "";
 
-// Spawn a child process to run the Python script
-const pythonProcess = spawn('python', [pythonScriptPath, ...pythonArgs]);
+    pythonProcess.stdout.on("data", (data) => {
+      pythonOutput += data.toString();
+    });
 
-// Listen for data from the Python script (stdout and stderr)
-pythonProcess.stdout.on('data', (data) => {
-  console.log(data.toString());
-});
+    pythonProcess.stderr.on("data", (data) => {
+      console.error(data.toString());
+    });
 
-pythonProcess.stderr.on('data', (data) => {
-  console.error(data.toString());
-});
+    pythonProcess.on("close", (code) => {
+      if (code === 0) {
+        resolve(pythonOutput.trim());
+      } else {
+        reject(`Python script exited with code ${code}.`);
+      }
+    });
+  });
+};
 
-// Listen for the Python script to exit
-pythonProcess.on('close', (code) => {
-  if (code === 0) {
-    console.log('Python script successfully executed.');
-  } else {
-    console.error(`Python script exited with code ${code}.`);
-  }
-});
+module.exports = face_detection;
