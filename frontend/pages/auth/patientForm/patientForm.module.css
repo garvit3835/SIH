@@ -121,7 +121,7 @@
 }
 .dropText {
     font-size: 20px;
-    font-family: 'circular';
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     color: teal;
 }
@@ -135,3 +135,37 @@
     padding: 10px;
     border-radius: 10px;
 }
+.diseaseBox {
+    min-width: 80px;
+    min-height: 40px;
+    background-color: #f7fafc;
+    border-radius: 10px;
+    gap: 5px;
+    border: 1px solid #dbdbdb;
+    padding: 8px;
+}
+.disease {
+    color: teal;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+@media screen and (max-width: 550px) {
+    .dragContainer {
+        min-width: unset;
+        padding: 20px;
+    }
+    
+  }
+
+  /* MAP */
+
+.currentLocationBtn {
+    background-color: var(--clr-primary-500);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid var(--clr-primary-900);
+    padding: 0.5rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 1rem;
+  }
