@@ -1,6 +1,6 @@
 import { useAuth } from "./AuthContext";
 import { createContext, useContext, useEffect, useState } from "react";
-
+import { Center, Spinner } from '@chakra-ui/react'
 import { useRouter } from "next/router";
 import routes, { protectedRoutes } from "../../routes";
 
@@ -16,7 +16,7 @@ export const useAppData = () => useContext(AppContext);
 
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const router = useRouter();
   const authInfo = useAuth();
 
@@ -53,7 +53,10 @@ const AppProvider = ({ children }) => {
   };
 
   if (isLoading) {
-    return <>Loading...</>;
+    return <Center minH={"100vh"}>
+      <Spinner color='red.500' size='xl'/>
+
+    </Center>
   }
 
   return <AppContext.Provider value={appData}>{children}</AppContext.Provider>;
