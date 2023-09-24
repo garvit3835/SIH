@@ -109,7 +109,7 @@ const PatientLocation = ({ setCurrentPos }) => {
   return (
     <div
       id="map"
-      style={{ width: "600px", height: "600px", borderRadius: "20px" }}
+      style={{ width: "100%", height: "100%", borderRadius: "20px" }}
     ></div>
   );
 };
