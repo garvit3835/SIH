@@ -113,5 +113,4 @@ const PatientLocation = ({ setCurrentPos }) => {
     ></div>
   );
 };
-
 export default PatientLocation;
