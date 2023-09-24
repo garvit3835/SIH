@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styles from "components/common/Header/header.module.css";
 import {
     Modal,
@@ -23,9 +23,58 @@ import {
     RadioGroup
 } from '@chakra-ui/react'
 import { inherits } from 'util';
-const BookAppointment = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+import {useAppData} from '../context/AppContext'
 
+const BookAppointment = () => {
+    const { isLoading, enableLoader, disableLoader } = useAppData();
+
+    const [load,setLoad] = useState(false)
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [appointmentData,setAppointmentData] = useState({
+        prefix:"",
+        firstName: "",
+        lastName: "",
+        number: null,
+        email: "",
+        area: "",
+        city:"",
+        state:"",
+        postal:"",
+        description:"",
+        specialization:"",
+        doctor:"",
+        date:"",
+        timeSlot:"",
+        isEmergency:false,
+
+    })
+    const handleData = (ev)=> {
+        const key = ev.target.name
+        let value = ev.target.value
+    if(key==='isEmergency') {
+        if(value==='1') value=true
+        else value=false
+    }
+        // console.log(value)
+        const updatedObj = {
+                ...appointmentData,
+             [key]: value
+        }
+        // console.log(updatedObj)
+        setAppointmentData(updatedObj)
+        
+    }
+
+    const handleSubmit =()=> {
+       enableLoader()
+        // console.log(appointmentData)
+
+        // API CALL
+        setTimeout(() => {
+            disableLoader()
+        }, 3000);
+        
+    }
     return (
         <>
             <Button variant="solid" className={styles.bookBtn} onClick={onOpen}>
@@ -51,7 +100,7 @@ const BookAppointment = () => {
                                         <Flex>
                                             <FormControl>
                                                 <FormLabel>Prefix</FormLabel>
-                                                <Select className={styles.inp} color={'teal'}>
+                                                <Select className={styles.inp} name='prefix' color={'teal'} onChange={(ev)=>handleData(ev)}>
                                                     <option>Mr.</option>
                                                     <option>Ms.</option>
                                                     <option>Master.</option>
@@ -62,24 +111,24 @@ const BookAppointment = () => {
                                         <Flex>
                                             <FormControl isRequired>
                                                 <FormLabel>First name</FormLabel>
-                                                <Input placeholder='First name' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                                <Input placeholder='First name' className={styles.inp} name='firstName' color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                             </FormControl>
                                         </Flex>
                                         <Flex>
                                             <FormControl>
                                                 <FormLabel>Last name</FormLabel>
-                                                <Input placeholder='Last name' className={styles.inp}color={'teal'} _placeholder={{color:"inherit"}}/>
+                                                <Input placeholder='Last name' className={styles.inp} name='lastName'color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                             </FormControl>
                                         </Flex>
                                     </Flex>
                                     <Flex width={"100%"} gap={"4%"}>
                                         <FormControl isRequired width={'41%'}>
                                             <FormLabel>Contact Number</FormLabel>
-                                            <Input type='number' placeholder='8929988954' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='number' placeholder='8929988954' className={styles.inp} name='number' color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                         <FormControl width={'41%'}>
                                             <FormLabel>Email</FormLabel>
-                                            <Input type='email' placeholder='mail@email.com' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='email' placeholder='mail@email.com' className={styles.inp} name='email' color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                     </Flex>
                                 </Flex>
@@ -90,21 +139,21 @@ const BookAppointment = () => {
                                     <Flex width={"100%"} gap={"3%"}>
                                         <FormControl isRequired width={"41%"}>
                                             <FormLabel>Area</FormLabel>
-                                            <Input type='text' placeholder='abc street' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='text' placeholder='abc street' name='area' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                         <FormControl isRequired width={"41%"}>
                                             <FormLabel>City</FormLabel>
-                                            <Input type='text' className={styles.inp} placeholder='New Delhi' color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='text' className={styles.inp} name='city' placeholder='New Delhi' color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                     </Flex>
                                     <Flex width={"100%"} gap={"3%"}>
                                         <FormControl isRequired width={"41%"}>
                                             <FormLabel>State</FormLabel>
-                                            <Input type='text' placeholder='Haryana' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='text' placeholder='Haryana' name='state' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                         <FormControl isRequired width={"41%"}>
                                             <FormLabel>Postal Code</FormLabel>
-                                            <Input type='text' placeholder='110063' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='number' placeholder='110063' name='postal' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                     </Flex>
                                 </Flex>
@@ -119,17 +168,17 @@ const BookAppointment = () => {
                                     <Flex width={"100%"} gap={"3%"}>
                                         <FormControl isRequired width={"41%"}>
                                             <FormLabel>Description</FormLabel>
-                                            <Textarea color={'teal'} _placeholder={{color:"inherit"}} className={styles.inp}></Textarea>
+                                            <Textarea color={'teal'} _placeholder={{color:"inherit"}} name='description' className={styles.inp} onChange={(ev)=>handleData(ev)}></Textarea>
                                         </FormControl>
                                         <FormControl width={"41%"}>
                                             <FormLabel>Specialization required</FormLabel>
-                                            <Input type='text' placeholder={"Cardiologist"} className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='text' placeholder={"Cardiologist"} name='specialization' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
                                     </Flex>
                                     <Flex width={"100%"} gap={"3%"}>
                                         <FormControl width={"41%"}>
                                             <FormLabel>Preferred Doctor(if any)</FormLabel>
-                                            <Input type='text' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='text' className={styles.inp} color={'teal'} name='doctor' _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
 
                                     </Flex>
@@ -142,13 +191,13 @@ const BookAppointment = () => {
 
                                         <FormControl width={"41%"}>
                                             <FormLabel isRequired>Preferred Date</FormLabel>
-                                            <Input type='date' className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}/>
+                                            <Input type='date' className={styles.inp} color={'teal'} name='date' _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}/>
                                         </FormControl>
 
 
                                         <FormControl isRequired width={"41%"} >
                                             <FormLabel>Preferred Time Slot</FormLabel>
-                                            <Select className={styles.inp} color={'teal'} _placeholder={{color:"inherit"}}>
+                                            <Select className={styles.inp} color={'teal'} name='timeSlot' _placeholder={{color:"inherit"}} onChange={(ev)=>handleData(ev)}>
                                                 <option>9:00-9.30</option>
                                                 <option>9:30-10.00</option>
                                                 <option>10:00-10.30</option>
@@ -160,12 +209,12 @@ const BookAppointment = () => {
                                     </Flex>
                                     <Flex width={"100%"} gap={"3%"}>
                                         <FormLabel>Emergency Case?</FormLabel>
-                                        <RadioGroup defaultValue='2'>
+                                        <RadioGroup defaultValue='2'name='isEmergency' >
                                             <Stack spacing={5} direction='row'>
-                                                <Radio colorScheme='green' value='1'>
+                                                <Radio colorScheme='green' value='1'  onChange={(ev)=>handleData(ev)}>
                                                     Yes
                                                 </Radio>
-                                                <Radio colorScheme='red' value='2'>
+                                                <Radio colorScheme='red' value='2' onChange={(ev)=>handleData(ev)}>
                                                     No
                                                 </Radio>
                                             </Stack>
@@ -185,7 +234,7 @@ const BookAppointment = () => {
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose} color={"red"}  mr={3}>Close</Button>
-                        <Button className={styles.btns}>Submit</Button>
+                        <Button className={styles.btns} onClick={()=>{handleSubmit()}} isLoading = {load===true?true:false}>Submit</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
