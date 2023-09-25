@@ -1,18 +1,16 @@
 import React from "react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
-import {usePathname} from 'next/navigation'
+import { useRouter } from "next/router";
 import AdminHeader from "../common/AdminHeader";
 const DashboardLayout = ({ children }) => {
-  const pathName = usePathname()
- 
+  const router = useRouter();
+  const rootPath = router.pathname.split("/")[1];
+
   return (
     <>
-      {
-        pathName==='/p'?<Header />:(pathName==='/h'?<AdminHeader/>:"")
-      }
-    
-      
+      {rootPath === "p" ? <Header /> : rootPath === "h" ? <AdminHeader /> : ""}
+
       <main>{children}</main>
       <Footer />
     </>

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import DashboardLayout from "../../components/layouts/DashboardLayout";
+import DashboardLayout from "../../../components/layouts/DashboardLayout";
 import { useEffect, useState } from "react";
-import styles from "./p.module.css";
+import styles from "./doctors.module.css";
 import {
   Avatar,
   Button,
@@ -15,7 +15,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 // import Image from "next/image";
-import cn from "classnames";
 
 const tempData = [
   {
@@ -37,18 +36,9 @@ const tempData = [
 
 export default function Home() {
   const [data, setData] = useState();
-  const [currentApp, setCurrentApp] = useState();
 
   useEffect(() => {
     setData(tempData);
-    setCurrentApp({
-      doctorName: "Dr. John Doe",
-      id: 2,
-      name: "Dr. Jane Smith",
-      specialization: "Pediatrician",
-      hospital: "ABC Children's Hospital",
-      image: "doctor2.jpg",
-    });
   }, []);
 
   if (!data) {
@@ -57,55 +47,6 @@ export default function Home() {
 
   return (
     <Container maxW="container.lg" className={styles.main}>
-      {currentApp && (
-        <>
-          <Heading size="md" marginBottom={5}>
-            Your Current Appointment
-          </Heading>
-
-          <Card
-            direction={{ base: "column", sm: "row" }}
-            overflow="hidden"
-            variant="elevated"
-            className={cn(styles.appoint, styles.current)}
-          >
-            <Avatar
-              size="xl"
-              name={currentApp.name.replace("Dr. ", "")}
-              className={styles.docAvatar}
-              src={currentApp.image}
-            />
-
-            <Stack>
-              <CardBody paddingBottom={0}>
-                <Heading size="md">
-                  {currentApp.name}{" "}
-                  <Text as="i" fontWeight={400} fontSize={16} marginLeft={2}>
-                    {currentApp.specialization}
-                  </Text>
-                </Heading>
-
-                <Text py="2">{currentApp.hospital}</Text>
-              </CardBody>
-
-              <CardFooter>
-                <Button
-                  variant="solid"
-                  colorScheme="teal"
-                  className={styles.docBtn}
-                >
-                  View Appointment
-                </Button>
-              </CardFooter>
-            </Stack>
-          </Card>
-        </>
-      )}
-
-      <Heading size="md" marginBottom={5}>
-        All Previous Appointments
-      </Heading>
-
       <div className={styles.mainList}>
         {data.map((doctor) => (
           <Card
@@ -113,7 +54,7 @@ export default function Home() {
             direction={{ base: "column", sm: "row" }}
             overflow="hidden"
             variant="elevated"
-            className={styles.appoint}
+            className={styles.doc}
           >
             <Avatar
               size="xl"
@@ -138,9 +79,19 @@ export default function Home() {
                 <Button
                   variant="solid"
                   colorScheme="teal"
-                  className={styles.docBtn}
+                  className={styles.bookBtn}
                 >
                   Book Appointment
+                </Button>
+                <Button
+                  variant="outline"
+                  colorScheme="teal"
+                  className={styles.viewBtn}
+                  ml={2}
+                  as={Link}
+                  href={`/p/doc/${doctor.id}`}
+                >
+                  More Details
                 </Button>
               </CardFooter>
             </Stack>

@@ -17,7 +17,11 @@ const Navbar = () => {
       onChange={(index) => {
         router.push(navRoutes[index]);
       }}
-      defaultIndex={navRoutes.indexOf(router.pathname)}
+      index={
+        navRoutes.includes(router.pathname)
+          ? navRoutes.indexOf(router.pathname)
+          : navRoutes.length
+      }
     >
       <TabList style={{ border: "1px solid transparent" }}>
         <Tab className={styles.tab}>Appointments</Tab>
