@@ -37,21 +37,20 @@ const patientForm = () => {
     }
     console.log(obj)
     setTimeout(() => {
-      setLoad(false)
+      setLoad(false);
     }, 2000);
-    changePage(page+1)
-  }
+    changePage(page + 1);
+  };
   return (
     <>
-    <Flex className={styles.logoContainer}>
-    <img src="/images/tempLogo.png" width={40}></img>
-          <h1 className={styles.title}>MediBridge</h1>
-    </Flex>
-    <Box className={styles.main}>
-    <div className={styles.stepper}>
-
-    <MyStepper page={page}/>
-    </div>
+      <Flex className={styles.logoContainer}>
+        <img src="/images/tempLogo.png" width={40}></img>
+        <h1 className={styles.title}>MediBridge</h1>
+      </Flex>
+      <Box className={styles.main}>
+        <div className={styles.stepper}>
+          <MyStepper page={page} />
+        </div>
 
     <Flex flexDirection={'column'} justifyContent={'space-between'} height={250} className={cn(styles.mid, { [styles.map]: page === 2 })}>
 
@@ -101,7 +100,7 @@ const patientForm = () => {
     </Flex>
     </Box>
     </>
-  )
-}
+  );
+};
 
-export default patientForm
+export default patientForm;
