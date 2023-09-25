@@ -6,7 +6,11 @@ const pool = new Pool({
 	user: process.env.DB_USER,
 	password: process.env.DB_PASS,
 	database: process.env.DB_DATABASE,
-	port: process.env.DB_PORT
+	port: process.env.DB_PORT,
+	ssl: {
+    // This should be set to true for Amazon RDS instances with SSL enabled.
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
