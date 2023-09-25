@@ -1,4 +1,4 @@
 .tab[aria-selected="true"] {
-  color: var(--clr-primary-800);
+  color: var(--chakra-colors-yellow-800);
   font-weight: 600;
 }
