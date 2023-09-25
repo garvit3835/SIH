@@ -1,14 +1,9 @@
-import React from 'react'
-import Navbar from '@/components/common/Navbar'
-import AdminHeader from '@/components/common/AdminHeader'
-
+import DashboardLayout from "../../components/layouts/DashboardLayout";
 
 export default function Home() {
-  return (
-    <div>
-      <AdminHeader/>
-
-      appointments
-    </div>
-  )
+  return <>Here are all the Admin</>;
 }
+
+Home.getLayout = function getLayout(page) {
+  return <DashboardLayout>{page}</DashboardLayout>;
+};
