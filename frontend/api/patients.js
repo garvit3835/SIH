@@ -47,6 +47,7 @@ export const credSign = async(email, password) => {
 export const infoSign = ({
   name, number, gender, family, address, latitude, longitude
 }) => {
+  console.log(name, number, gender, family, address, latitude, longitude)
   axios({
     method: "post",
     url: getURL("/patients/signup/info"),

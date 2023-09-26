@@ -36,7 +36,8 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Container className={styles.headerMain} maxW="container.lg">
-        <div className={styles.logo}>MediBridge</div>
+      <img src="/images/Logo.svg" alt="" width={30}/>
+        <div className={styles.title}>MediBridge</div>
 
         <InputGroup className={styles.search} background="whiteAlpha.800">
           <InputLeftElement pointerEvents="none">
