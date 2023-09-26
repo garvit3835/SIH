@@ -5,11 +5,15 @@
   border-bottom: 2px solid var(--clr-primary-100);
 }
 
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
 .headerMain {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
   padding: 1rem 1rem;
 }
 

@@ -91,6 +91,7 @@ const AddDoc = () => {
     // console.log(appointmentData)
 
     // API CALL
+    
     setTimeout(() => {
       disableLoader()
     }, 3000);

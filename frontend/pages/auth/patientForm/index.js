@@ -7,6 +7,7 @@ import MedicalRecord from '../../../components/auth/MedicalRecord'
 import PatientLocation from '../../../components/auth/PatientLocation'
 import { wrap } from 'framer-motion'
 import cn from "classnames";
+import { infoSign } from '@/api/patients'
 const patientForm = () => {
   const [page,changePage] = useState(0)
   const [load,setLoad] = useState(false)
@@ -32,10 +33,9 @@ const patientForm = () => {
   const handleSubmit = ()=> {
     setLoad(true);
     const name = FirstName + ' ' + lastName
-    const obj = {
-      name,phone,file,diseases,currentPos,familyMember
-    }
-    console.log(obj)
+    // console.log(phone)
+    infoSign({name,number:phone,gender:"male",family:familyMember,address:"xyz",latitude:currentPos.lat,longitude:currentPos.lng})
+    
     setTimeout(() => {
       setLoad(false)
     }, 2000);
