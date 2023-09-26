@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     setDoctor(tempData.find((doctor) => doctor.id == router.query.id));
-  }, [tempData, router]);
+  }, [tempData, router.query.id]);
 
   if (!doctor) {
     return <div className={styles.loading}>Loading...</div>;

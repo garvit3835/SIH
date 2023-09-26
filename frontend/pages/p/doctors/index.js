@@ -1,6 +1,6 @@
 import Link from "next/link";
 import DashboardLayout from "../../../components/layouts/DashboardLayout";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./doctors.module.css";
 import {
   Avatar,
@@ -14,6 +14,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 // import Image from "next/image";
 
 const tempData = [
@@ -35,7 +36,27 @@ const tempData = [
 ];
 
 export default function Home() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
+  const router = useRouter();
+
+  const filteredData = useMemo(
+    () =>
+      data.filter((d) => {
+        console.log(
+          d.name
+            .toLowerCase()
+            .indexOf(decodeURIComponent(router.query.search).toLowerCase())
+        );
+
+        return router.query.search
+          ? d.name
+              .toLowerCase()
+              .indexOf(decodeURIComponent(router.query.search).toLowerCase()) >=
+              0
+          : true;
+      }),
+    [router.query.search, data]
+  );
 
   useEffect(() => {
     setData(tempData);
@@ -48,7 +69,7 @@ export default function Home() {
   return (
     <Container maxW="container.lg" className={styles.main}>
       <div className={styles.mainList}>
-        {data.map((doctor) => (
+        {filteredData.map((doctor) => (
           <Card
             key={doctor.id}
             direction={{ base: "column", sm: "row" }}

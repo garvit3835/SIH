@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./p.module.css";
 import {
   Avatar,
+  Badge,
   Button,
   Card,
   CardBody,
@@ -16,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 // import Image from "next/image";
 import cn from "classnames";
+import AppointmentCard from "@/components/Patient/AppointmentCard";
 
 const tempData = [
   {
@@ -35,20 +37,64 @@ const tempData = [
   // Add more doctors as needed
 ];
 
+const apiDummy = [
+  {
+    a_id: 1,
+    patient: 101,
+    doctor_name: "Dr. John Smith",
+    doctor_number: 1234567890,
+    specialization: "Cardiologist",
+    rating: 4.8,
+    hospital_name: "Sample Hospital 1",
+    hospital_number: 9876543210,
+    hospital_address: "123 Main St, Sample City, USA",
+    description: "Regular Checkup",
+    time: "2023-09-20T10:00:00.000Z",
+    is_emergency: 0,
+    status: 0,
+    prescription: null,
+  },
+  {
+    a_id: 2,
+    patient: 101,
+    doctor_name: "Dr. Alice Johnson",
+    doctor_number: 9876543210,
+    specialization: "Dermatologist",
+    rating: 4.5,
+    hospital_name: "Sample Hospital 2",
+    hospital_number: 1234567890,
+    hospital_address: "456 Elm St, Sample Town, USA",
+    description: "Skin Check",
+    time: "2023-09-21T14:30:00.000Z",
+    is_emergency: 1,
+    status: 1,
+    prescription: null,
+  },
+  {
+    a_id: 3,
+    patient: 101,
+    doctor_name: "Dr. Bob Doe",
+    doctor_number: 5555555555,
+    specialization: "Orthopedic Surgeon",
+    rating: 4.9,
+    hospital_name: "Sample Hospital 1",
+    hospital_number: 9876543210,
+    hospital_address: "123 Main St, Sample City, USA",
+    description: "Knee Pain Consultation",
+    time: "2023-09-22T11:15:00.000Z",
+    is_emergency: 0,
+    status: -1,
+    prescription: null,
+  },
+];
+
 export default function Home() {
   const [data, setData] = useState();
   const [currentApp, setCurrentApp] = useState();
 
   useEffect(() => {
-    setData(tempData);
-    setCurrentApp({
-      doctorName: "Dr. John Doe",
-      id: 2,
-      name: "Dr. Jane Smith",
-      specialization: "Pediatrician",
-      hospital: "ABC Children's Hospital",
-      image: "doctor2.jpg",
-    });
+    setData(apiDummy.filter((app) => app.status !== 0));
+    setCurrentApp(apiDummy.filter((app) => app.status === 0));
   }, []);
 
   if (!data) {
@@ -63,88 +109,21 @@ export default function Home() {
             Your Current Appointment
           </Heading>
 
-          <Card
-            direction={{ base: "column", sm: "row" }}
-            overflow="hidden"
-            variant="elevated"
-            className={cn(styles.appoint, styles.current)}
-          >
-            <Avatar
-              size="xl"
-              name={currentApp.name.replace("Dr. ", "")}
-              className={styles.docAvatar}
-              src={currentApp.image}
-            />
-
-            <Stack>
-              <CardBody paddingBottom={0}>
-                <Heading size="md">
-                  {currentApp.name}{" "}
-                  <Text as="i" fontWeight={400} fontSize={16} marginLeft={2}>
-                    {currentApp.specialization}
-                  </Text>
-                </Heading>
-
-                <Text py="2">{currentApp.hospital}</Text>
-              </CardBody>
-
-              <CardFooter>
-                <Button
-                  variant="solid"
-                  colorScheme="teal"
-                  className={styles.docBtn}
-                >
-                  View Appointment
-                </Button>
-              </CardFooter>
-            </Stack>
-          </Card>
+          <div className={styles.mainList}>
+            {currentApp.map((app) => (
+              <AppointmentCard data={app} key={app.a_id} showFooter={true} />
+            ))}
+          </div>
         </>
       )}
 
-      <Heading size="md" marginBottom={5}>
+      <Heading size="md" marginY={5}>
         All Previous Appointments
       </Heading>
 
       <div className={styles.mainList}>
-        {data.map((doctor) => (
-          <Card
-            key={doctor.id}
-            direction={{ base: "column", sm: "row" }}
-            overflow="hidden"
-            variant="elevated"
-            className={styles.appoint}
-          >
-            <Avatar
-              size="xl"
-              name={doctor.name.replace("Dr. ", "")}
-              className={styles.docAvatar}
-              src={doctor.image}
-            />
-
-            <Stack>
-              <CardBody paddingBottom={0}>
-                <Heading size="md">
-                  {doctor.name}{" "}
-                  <Text as="i" fontWeight={400} fontSize={16} marginLeft={2}>
-                    {doctor.specialization}
-                  </Text>
-                </Heading>
-
-                <Text py="2">{doctor.hospital}</Text>
-              </CardBody>
-
-              <CardFooter>
-                <Button
-                  variant="solid"
-                  colorScheme="teal"
-                  className={styles.docBtn}
-                >
-                  Book Appointment
-                </Button>
-              </CardFooter>
-            </Stack>
-          </Card>
+        {data.map((app) => (
+          <AppointmentCard data={app} key={app.a_id} />
         ))}
       </div>
     </Container>
