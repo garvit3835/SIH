@@ -30,7 +30,7 @@ router.post('/signup/creds',(req,res)=>{
 
     encrypt(password,15).then((pass)=>{
         console.log("Hashed: ",pass);
-        insert_patient_creds(email,pass).then((d_id)=>{
+        insert_doctor_creds(email,pass).then((d_id)=>{
             assignToken(d_id,'4h').then((token)=>{
                 res.status(201).json({message:'New Login Created Successfully',token:token})
             })

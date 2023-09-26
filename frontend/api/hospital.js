@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
+import { getURL } from "./url";
 
 export const login = (username, password) => {
   axios({
@@ -20,7 +21,7 @@ export const login = (username, password) => {
     });
 };
 
-export const credSign = (email, password) => {
+export const credSignHospital = (email, password) => {
   axios({
     method: "post",
     url: getURL("/hospitals/signup/creds"),
