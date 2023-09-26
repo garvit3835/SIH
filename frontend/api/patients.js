@@ -132,7 +132,7 @@ export const createAppointment = ({
   prescription
 }) => {
   axios({
-    method: "get",
+    method: "post",
     url: getURL("/patients/appointments/create"),
     headers: {
       Authorization: `Bearer ${getUserIdCookie('patientID')}`,
