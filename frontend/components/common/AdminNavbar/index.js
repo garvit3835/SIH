@@ -4,11 +4,11 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import React from "react";
 import routes from "../../../routes";
 
-import styles from "./navbar.module.css";
+import styles from "./adminnavbar.module.css";
 
-const navRoutes = [routes.Today_APPOINTMENTS, routes.SLOTS, routes.REPORTS];
+const navRoutes = [routes.CURRENT_APPOINTMENTS, routes.DOCTOR_DATA, routes.APPOINTMENT_TRACK];
 
-const Navbar = () => {
+const AdminNavbar = () => {
   const router = useRouter();
 
   return (
@@ -20,12 +20,12 @@ const Navbar = () => {
       defaultIndex={navRoutes.indexOf(router.pathname)}
     >
       <TabList style={{ border: "1px solid transparent" }}>
-        <Tab className={styles.tab}>Appointments</Tab>
-        <Tab className={styles.tab}>Doctors</Tab>
-        <Tab className={styles.tab}>Reports</Tab>
+        <Tab className={styles.tab}>Current Appointments</Tab>
+        <Tab className={styles.tab}>Doctor Data</Tab>
+        <Tab className={styles.tab}>Track Appointments</Tab>
       </TabList>
     </Tabs>
   );
 };
 
-export default Navbar;
+export default AdminNavbar;

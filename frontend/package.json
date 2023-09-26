@@ -18,6 +18,7 @@
     "autoprefixer": "10.4.15",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "date-fns": "^2.30.0",
     "cookies": "^0.8.0",
     "email-validator": "^2.0.4",
     "framer-motion": "^10.16.4",
