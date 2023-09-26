@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
+import { getURL } from "./url";
 
 export const login = (username, password) => {
   axios({
@@ -30,7 +31,7 @@ export const credSign = (email, password) => {
     },
   })
     .then((res) => {
-      if(res.status == 200){
+      if(res.status == 201){
         setCookies(res.data.token,'patientID');
       }
     })
