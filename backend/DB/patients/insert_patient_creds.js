@@ -15,6 +15,6 @@ const insert_patient_creds = async (username, password) => {
   }
 };
 
-insert_patient_creds('sdfds', 'sdfdsf')
+// insert_patient_creds('sdfds', 'sdfdsf')
 
 module.exports = insert_patient_creds;

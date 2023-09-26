@@ -15,6 +15,6 @@ const signup_hospital = async (h_id, name, number, address, latitude, longitude)
   }
 };
 
-signup_hospital(3, 'aims', 23324242, 'test', 34, 43)
+// signup_hospital(3, 'aims', 23324242, 'test', 34, 43)
 
 module.exports = signup_hospital;

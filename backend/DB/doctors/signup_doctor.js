@@ -15,6 +15,6 @@ const signup_doctor = async (d_id, name, number, latitude, longitude, specializa
   }
 };
 
-signup_doctor(4, 'apurba', 334343, 5, 34, 1, 4.5, 3)
+// signup_doctor(4, 'apurba', 334343, 5, 34, 1, 4.5, 3)
 
 module.exports = signup_doctor;

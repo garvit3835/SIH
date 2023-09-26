@@ -17,6 +17,6 @@ const get_doctors = async (h_id) => {
 	}
 };
 
-get_doctors(1)
+// get_doctors(1)
 
 module.exports = get_doctors;

@@ -37,6 +37,6 @@ async function update_doctor_slots(d_id, slots) {
   }
 }
 
-update_doctor_slots(1, newSlots);
+// update_doctor_slots(1, newSlots);
 
 module.exports = update_doctor_slots;

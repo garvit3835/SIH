@@ -19,6 +19,6 @@ const get_doctor_slots = async (d_id) => {
 	}
 };
 
-get_doctor_slots(1)
+// get_doctor_slots(1)
 
 module.exports = get_doctor_slots;
