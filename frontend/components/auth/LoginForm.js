@@ -61,8 +61,16 @@ const LoginForm = ({ role }) => {
       return
     }
     else {
+      changeEmailError(false,'','')
+    }
+    if(pass==='') {
+      changePassError(true,'invalid password','Please add a valid password')
+      return
+    }
+    else {
       changePassError(false,'','');
       changeEmailError(false,'','')
+      console.log(emailError.msg)
       // API CALL
       if(role==='patient') {
         login(email,pass)
