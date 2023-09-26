@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap");
+
+.header {
+  background-color: var(--clr-primary-50);
+  border-bottom: 2px solid var(--clr-primary-100);
+}
+
+.headerMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1rem;
+}
+
+.search {
+  flex: 1;
+}
+
+.bookBtn {
+  background-color: var(--clr-primary-100);
+}
+
+.bookBtn:hover {
+  background-color: var(--clr-primary-200);
+}
+
+/* Book appointment modal styling */
+.logoContainer {
+  position: absolute;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+    gap: 10px;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+}
+.left {
+  flex-direction: column;
+    justify-content: space-evenly;
+    /* border-right: 1px solid gray; */
+}
+.topLeft {
+  height: 45%;
+  /* background-color: aqua; */
+  width: 90%;
+  flex-direction: column;
+  justify-content: space-evenly;
+    align-items: center;
+}
+.botLeft {
+  height: 45%;
+  /* background-color: aquamarine; */
+  width: 90%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.vl {
+  border-left: 2px solid teal;
+  height: 100%;
+}
+.right {
+  flex-direction: column;
+    justify-content: space-evenly;
+}
+.h1 {
+  font-size: 20px;
+  font-family: 'poppins';
+  font-weight: 700;
+}
+.topRight {
+  height: 45%;
+  /* background-color: aqua; */
+  width: 90%;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.botRight {
+  height: 45%;
+  /* background-color: aquamarine; */
+  width: 90%;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.inpContainers {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.inp {
+  
+  border: 2px solid rgb(208, 208, 208);
+  background-color: #f7fafc;
+}
+.btns {
+  background: var(--chakra-colors-teal-400);
+color: var(--chakra-colors-teal-50);
+/* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+border-radius: 10px;
+border: 1px solid rgba(255, 255, 255, 0.18);
+/* max-width: 10%; */
+min-width: 8%;
+transition: background 0.5s;
+}
+.btns:hover {
+  color: black;
+}
+@media screen and (max-width: 930px) {
+ .appointmentMain {
+  flex-direction: column;
+  align-items: center;
+ }
+ .left {
+  max-width: unset;
+  width: 100%;
+ }
+ .right {
+  max-width: unset;
+  width: 100%;
+ }
+ .topLeft {
+  margin-bottom: 35px;
+ }
+ .topRight {
+  margin-bottom: 35px;
+ }
+ .botLeft {
+  margin-bottom: 35px;
+ }
+ .botRight {
+  margin-bottom: 35px;
+ }
+}

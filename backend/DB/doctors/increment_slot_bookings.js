@@ -10,7 +10,7 @@ const increment_slot_bookings = async (s_id) => {
       const updateQuery = 'UPDATE doctor_slots SET booked_patients = booked_patients + 1 WHERE s_id = $1';
       const result = await client.query(updateQuery, [s_id])
       client.release();
-      return result;
+      return ({sucess: "Appointment added to slot!"});
     } else {
       return ({error: "Slot Completely Booked!"})
     }

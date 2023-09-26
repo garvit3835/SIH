@@ -1,7 +1,17 @@
 const pool = require("../../config/connect_db");
 
-const get_doctor_slots = async (d_id) => {
-	const query = `SELECT * FROM doctor_slots WHERE doctor = $1`;
+const get_slots = async (d_id) => {
+	const query = `SELECT
+  ds.*,
+  h.name AS hospital_name,
+  h.address AS hospital_address
+  FROM
+    doctor_slots ds
+  JOIN
+    hospitals h ON ds.hospital = h.h_id
+  WHERE
+    ds.doctor = $1;
+  `;
   const values = [d_id];
 	try {
     const client = await pool.connect();
@@ -13,4 +23,4 @@ const get_doctor_slots = async (d_id) => {
   }
 };
 
-module.exports = get_doctor_slots;
+module.exports = get_slots;

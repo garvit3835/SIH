@@ -1,31 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap");
 
 .logoContainer {
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-  align-items: center;
-  gap: 10px;
-  font-size: 40px;
-  font-family: "Poppins", sans-serif;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+    gap: 10px;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
 }
 .stepper {
-  margin-top: 100px !important;
-  max-width: 80%;
-  min-width: 50%;
+    margin-top: 100px !important;
+    max-width: 80%;
+    min-width: 50%;
 }
 .main {
-  display: flex;
-  min-height: 100vh;
-  min-width: 80%;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--p0);
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    min-width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--p0);
+    flex-direction: column;
 }
 .btns {
-  background: var(--chakra-colors-teal-400);
+    background: var(--chakra-colors-teal-400);
   color: var(--chakra-colors-teal-50);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(0px);
@@ -37,89 +37,87 @@
   transition: background 0.5s;
 }
 .btns:hover {
-  color: black;
+    color: black;
 }
 .inp {
-  border: 2px solid rgb(208, 208, 208);
+    border: 2px solid rgb(208, 208, 208);
   background-color: #f7fafc;
 }
 .cardContainer {
-  /* height: 100px; */
-  min-height: 50%;
-  width: 75%;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;
+    /* height: 100px; */
+    min-height: 50%;
+    width: 75%;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
 }
 .card {
-  width: 24%;
+    width: 24%;
 }
 @media screen and (max-width: 1230px) {
-  .stepper {
-    width: 100%;
+    .stepper {
+        width: 100%;
+    }
   }
-}
 @media screen and (max-width: 600px) {
-  .stepper {
-    display: flex;
-    max-width: unset;
-    width: 100%;
-  }
-  .stepper > div {
-    width: 90%;
-    margin: auto;
-  }
-}
+    .stepper {
+        display: flex;
+        max-width: unset;
+        width: 100%;
+    }
+    .stepper>div {
+        width: 90%;
+        margin: auto;
 
-.map {
-  align-items: center;
-  width: 60%;
-}
-
+    }
+  }
 @media screen and (max-width: 530px) {
-  .mid {
-    width: 80%;
-    margin: 0 auto;
+    .mid {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .stepper {
+        display: flex;
+        max-width: unset;
+        width: 100%;
+    }
+    .stepper>div {
+        width: 100%;
+        margin: auto;
+
+    }
+    .cardContainer {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+    }
+    .main {
+        justify-content: space-evenly;
+    }
   }
-  .stepper {
-    display: flex;
-    max-width: unset;
-    width: 100%;
-  }
-  .stepper > div {
-    width: 100%;
-    margin: auto;
-  }
-  .cardContainer {
-    flex-direction: column;
-  }
-  .card {
-    width: 100%;
-  }
-  .main {
-    justify-content: space-evenly;
-  }
-}
 @media screen and (max-width: 480px) {
-  .stepper {
-    display: none;
+    
+    .stepper {
+        display: none;
+    }
+    .main {
+        padding-top: 70px;
+    }
+    .logoContainer {
+        margin-top: 40px;
+    }
   }
-  .main {
-    padding-top: 70px;
-  }
-  .logoContainer {
-    margin-top: 40px;
-  }
-}
+
 
 /* Medical record */
 .dragContainer {
-  min-width: 500px;
-  min-height: 200px;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed teal;
-  background-color: #f7fafc;
+    min-width: 500px;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed teal;
+    background-color: #f7fafc;
 }
 .dropText {
     font-size: 20px;
@@ -128,9 +126,9 @@
     color: teal;
 }
 .dragBox {
-  height: 150px;
-  justify-content: space-evenly;
-  align-items: center;
+    height: 150px;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .fileBtnContainer {
     border: 2px solid rgb(208, 208, 208);
