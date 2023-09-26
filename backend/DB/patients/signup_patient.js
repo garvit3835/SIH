@@ -9,12 +9,12 @@ const signup_patient = async (name, number, gender, family, address, latitude, l
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result.rows;
+    return ({success: "Patient Details Added!"})
   } catch (error) {
     console.error(error);
   }
 };
-
+// signup_patient("AK", 12345634590, "female", 5, "delhi", 34, -45.987)
 
 
 module.exports = signup_patient;

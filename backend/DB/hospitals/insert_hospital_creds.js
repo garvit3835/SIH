@@ -9,12 +9,12 @@ const insert_hospital_creds = async (username, password) => {
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result.rows;
+    return ({success: "Hospital credentails Registered!"})
   } catch (error) {
     console.error(error);
   }
 };
 
-// insert_hospital_creds("aims", "test");
+// insert_hospital_creds("max123", "test");
 
 module.exports = insert_hospital_creds;

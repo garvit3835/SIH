@@ -9,12 +9,12 @@ const signup_hospital = async (h_id, name, number, address, latitude, longitude)
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result.rows;
+    return ({success: "Hospital details added!"})
   } catch (error) {
     console.error(error);
   }
 };
 
-// signup_hospital(3, 'aims', 23324242, 'test', 34, 43)
+// signup_hospital(2, 'MrAX', 234342, 'test', -33.435, 38)
 
 module.exports = signup_hospital;

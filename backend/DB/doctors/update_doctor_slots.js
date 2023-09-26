@@ -1,13 +1,19 @@
 const pgp = require('pg-promise')();
 require('dotenv').config();
-const db = pgp(process.env.DB_STRING);
+const connectionOptions = {
+  connectionString: process.env.DB_STRING,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+};
+const db = pgp(connectionOptions);
 
 const newSlots = [
   {
     start: '2023-10-01 09:00:00',
     end: '09:30:00',
     hospital: 1,
-    doctor: 1,
+    doctor: 3,
     booked_patients: 0,
     max_patients: 5,
     is_repeat: false,
@@ -16,7 +22,7 @@ const newSlots = [
     start: '2023-09-22 10:00:00',
     end: '10:30:00',
     hospital: 1,
-    doctor: 1,
+    doctor: 3,
     booked_patients: 0,
     max_patients: 5,
     is_repeat: false,
@@ -37,6 +43,6 @@ async function update_doctor_slots(d_id, slots) {
   }
 }
 
-// update_doctor_slots(1, newSlots);
+// update_doctor_slots(3, newSlots);
 
 module.exports = update_doctor_slots;

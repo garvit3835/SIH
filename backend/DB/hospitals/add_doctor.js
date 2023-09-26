@@ -10,8 +10,8 @@ const add_doctors = async (h_id, d_username) => {
 			const client = await pool.connect();
 			const result = await client.query(query, values);
 			client.release();
-			console.log(result.rows);
-			return result.rows;
+			// console.log(result.rows);
+			return ({success: "Doctor added!"})
 		} catch (error) {
 			console.error(error);
 		}
@@ -19,5 +19,7 @@ const add_doctors = async (h_id, d_username) => {
     return ({error: "Doctor does not exist, register it as a new doctor."})
   }
 };
+
+// add_doctors(4, 'garvit123')
 
 module.exports = add_doctors;
