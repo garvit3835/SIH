@@ -49,7 +49,7 @@ router.post('/signup/creds',(req,res)=>{
 })
 
 router.post('/signup/info',checkToken,(req,res)=>{
-    const {name,phone,family,policy,address,location,diseases} = req.body;
+    const {name, number, gender, family, address, latitude, longitude} = req.body;
     const p_id = res.locals.authorization;
 
 })
@@ -57,7 +57,7 @@ router.post('/signup/info',checkToken,(req,res)=>{
 router.get('/details/all',checkToken,(req,res)=>{
     const p_id = res.locals.authorization;
     get_patient(p_id).then((result)=>{
-        res.status(200).json({details:result})
+        res.status(200).json({message: 'Details fetched',details:result})
     }).catch((err)=>{
         res.status(501).json({message:'Error Encountered'})
     });
