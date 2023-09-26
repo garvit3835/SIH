@@ -6,7 +6,7 @@ import routes from "../../../routes";
 
 import styles from "./navbar.module.css";
 
-const navRoutes = [routes.PATIENT_HOME, routes.DOCTORS, routes.REPORTS];
+const navRoutes = [routes.PATIENT_HOME, routes.SLOTS, routes.REPORTS];
 
 const Navbar = () => {
   const router = useRouter();

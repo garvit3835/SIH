@@ -48,7 +48,7 @@ router.post('/signup/creds',(req,res)=>{
 })
 
 router.post('/signup/info',(req,res)=>{
-    const {name,phone,address,location} = req.body;
+    const {name, number, address, latitude, longitude} = req.body;
     const h_id = res.locals.authorization;
 
 })
@@ -67,7 +67,7 @@ router.get('/details/all',checkToken,(req,res)=>{
 router.get('/details/doctors',checkToken,(req,res)=>{
     const h_id = res.locals.authorization;
     get_doctors(h_id).then((result)=>{
-        res.status(200).json({message:"Doctors of hospital fetched",details:result});
+        res.status(200).json({message:"Doctors of hospital fetched",doctors:result});
     }).catch((err)=>{
         res.status(501).json({message:'Error Encountered'})
     })

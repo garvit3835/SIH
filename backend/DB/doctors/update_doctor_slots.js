@@ -24,8 +24,7 @@ const newSlots = [
 ];
 
 async function update_doctor_slots(d_id, slots) {
-  const deleteQuery = 'DELETE FROM doctor_slots WHERE doctor = $1'; // Use a parameterized query
-
+  const deleteQuery = 'DELETE FROM doctor_slots WHERE doctor = $1';
   try {
     await db.none(deleteQuery, [d_id]);
     const columns = ['start', 'end', 'hospital', 'doctor', 'booked_patients', 'max_patients', 'is_repeat'];
@@ -38,6 +37,6 @@ async function update_doctor_slots(d_id, slots) {
   }
 }
 
-update_doctor_slots(1, newSlots);
+// update_doctor_slots(1, newSlots);
 
 module.exports = update_doctor_slots;
