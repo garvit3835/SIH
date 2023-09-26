@@ -60,7 +60,7 @@ router.get('/details/all',checkToken,(req,res)=>{
 router.get('/details/appointments',checkToken,(req,res)=>{
     const d_id = res.locals.authorization;
     get_appointments(d_id).then((result)=>{
-        res.status(200).json({message:"Appointments fetched",details:result});
+        res.status(200).json({message:"Appointments fetched",appointments:result});
     }).catch((err)=>{
         res.status(501).json({message:'Error Encountered'})
     })

@@ -37,6 +37,6 @@ const get_nearby_hospitals = async (p_id) => {
   }
 };
 
-get_nearby_hospitals(1)
+// get_nearby_hospitals(1)
 
 module.exports = get_nearby_hospitals;

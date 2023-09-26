@@ -15,6 +15,6 @@ const insert_hospital_creds = async (username, password) => {
   }
 };
 
-insert_hospital_creds("aims", "test");
+// insert_hospital_creds("aims", "test");
 
 module.exports = insert_hospital_creds;
