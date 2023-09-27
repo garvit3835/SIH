@@ -2,7 +2,7 @@ import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
 import { getURL } from "./url";
 
-export const login = (username, password) => {
+export const login = async(username, password) => {
   axios({
     method: "post",
     url: getURL("/patients/login"),
@@ -14,11 +14,11 @@ export const login = (username, password) => {
     .then((res) => {
       if(res.status == 200){
         setCookies(res.data.token,'patientID');
-        
+        return true
       }
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 };
 

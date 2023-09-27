@@ -25,7 +25,9 @@ import routes from "../../routes";
 import { login } from "@/api/patients";
 import {login as docLogin}   from '@/api/doctors'
 import {login as hospitalLogin}   from '@/api/hospital'
+import { useRouter } from "next/router";
 const LoginForm = ({ role }) => {
+  const router = useRouter()
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
@@ -73,13 +75,25 @@ const LoginForm = ({ role }) => {
       console.log(emailError.msg)
       // API CALL
       if(role==='patient') {
-        login(email,pass)
+        const ans =login(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/p')
+        }
       }
       else if(role==='doctor') {
-        docLogin(email,pass)
+        const ans =docLogin(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/d')
+        }
       }
       else {
-        hospitalLogin(email,pass)
+        const ans = hospitalLogin(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/h')
+        }
       }
     }
   }

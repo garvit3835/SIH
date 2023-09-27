@@ -29,7 +29,7 @@ import styles from "pages/auth/signup/signup.module.css";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 
 import LoginForm from "../../../components/auth/LoginForm";
-const Signup = () => {
+const Login = () => {
   const roles = ["patient", "doctor", "hospital"];
 
   const [role, setRole] = useState(roles[0]);
@@ -109,4 +109,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
