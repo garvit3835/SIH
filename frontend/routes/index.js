@@ -5,11 +5,9 @@ const routes = {
   PATIENT_HOME: "/p",
   DOCTORS: "/p/doctors",
   REPORTS: "/p/reports",
-  CURRENT_APPOINTMENTS: "/h",
-  DOCTOR_DATA: "/h/docData",
-  APPOINTMENT_TRACK: "/h/trackAppointments",
-  SLOTS: "/d/slots",
-  Today_APPOINTMENTS: "/d"
+  CURRENT_APPOINTMENTS: "/d",
+  DOCTOR_DATA: "/d/docData",
+  APPOINTMENT_TRACK: "/d/trackAppointments",
 };
 
 export const protectedRoutes = [routes.HOME];

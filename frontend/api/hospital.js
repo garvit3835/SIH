@@ -21,7 +21,7 @@ export const login = (username, password) => {
     });
 };
 
-export const credSign = (email, password) => {
+export const credSignHospital = (email, password) => {
   axios({
     method: "post",
     url: getURL("/hospitals/signup/creds"),
@@ -43,6 +43,7 @@ export const credSign = (email, password) => {
 export const infoSign = ({
     name, number, address, latitude, longitude
 }) => {
+  console.log(name, number, address, latitude, longitude)
   axios({
     method: "post",
     url: getURL("/hospitals/signup/info"),
@@ -58,8 +59,9 @@ export const infoSign = ({
     },
   })
     .then((res) => {
+      console.log(res)
       if(res.status == 200){
-        // console.log(res.data.details)
+        console.log(res.data.details)
       }
     })
     .catch((err) => {

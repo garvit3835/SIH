@@ -1,18 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Asap&family=Caveat&family=Comic+Neue:wght@400;700&family=Delicious+Handrawn&family=Kalam&family=Manrope&family=Pacifico&family=Poppins:wght@500;600&family=Quicksand:wght@400;500;600&family=Roboto+Slab:wght@400;500&family=Schibsted+Grotesk&display=swap");
 
 .header {
-  background-color: var(--clr-primary-50);
-  border-bottom: 2px solid var(--clr-primary-100);
+  background-color: var(--chakra-colors-purple-50);
+  border-bottom: 2px solid var(--chakra-colors-purple-100);
 }
-.title {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-}
+
 .headerMain {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.6rem;
+  gap: 2rem;
   padding: 1rem 1rem;
 }
 
@@ -21,28 +18,28 @@
 }
 
 .bookBtn {
-  background-color: var(--clr-primary-100);
+  background-color: var(--chakra-colors-purple-100);
 }
 
 .bookBtn:hover {
-  background-color: var(--clr-primary-200);
+  background-color: var(--chakra-colors-purple-200);
 }
 
 /* Book appointment modal styling */
 .logoContainer {
   position: absolute;
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-    align-items: center;
-    gap: 10px;
-    font-size: 40px;
-    font-family: "Poppins", sans-serif;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
 }
 .left {
   flex-direction: column;
-    justify-content: space-evenly;
-    /* border-right: 1px solid gray; */
+  justify-content: space-evenly;
+  /* border-right: 1px solid gray; */
 }
 .topLeft {
   height: 45%;
@@ -50,7 +47,7 @@
   width: 90%;
   flex-direction: column;
   justify-content: space-evenly;
-    align-items: center;
+  align-items: center;
 }
 .botLeft {
   height: 45%;
@@ -61,16 +58,16 @@
 }
 
 .vl {
-  border-left: 2px solid teal;
+  border-left: 2px solid purple;
   height: 100%;
 }
 .right {
   flex-direction: column;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 .h1 {
   font-size: 20px;
-  font-family: 'poppins';
+  font-family: "poppins";
   font-weight: 700;
 }
 .topRight {
@@ -93,48 +90,47 @@
 }
 
 .inp {
-  
   border: 2px solid rgb(208, 208, 208);
   background-color: #f7fafc;
 }
 .btns {
-  background: var(--chakra-colors-teal-400);
-color: var(--chakra-colors-teal-50);
-/* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-backdrop-filter: blur(0px);
--webkit-backdrop-filter: blur(0px);
-border-radius: 10px;
-border: 1px solid rgba(255, 255, 255, 0.18);
-/* max-width: 10%; */
-min-width: 8%;
-transition: background 0.5s;
+  background: var(--chakra-colors-purple-400);
+  color: var(--chakra-colors-purple-50);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* max-width: 10%; */
+  min-width: 8%;
+  transition: background 0.5s;
 }
 .btns:hover {
   color: black;
 }
 @media screen and (max-width: 930px) {
- .appointmentMain {
-  flex-direction: column;
-  align-items: center;
- }
- .left {
-  max-width: unset;
-  width: 100%;
- }
- .right {
-  max-width: unset;
-  width: 100%;
- }
- .topLeft {
-  margin-bottom: 35px;
- }
- .topRight {
-  margin-bottom: 35px;
- }
- .botLeft {
-  margin-bottom: 35px;
- }
- .botRight {
-  margin-bottom: 35px;
- }
+  .appointmentMain {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left {
+    max-width: unset;
+    width: 100%;
+  }
+  .right {
+    max-width: unset;
+    width: 100%;
+  }
+  .topLeft {
+    margin-bottom: 35px;
+  }
+  .topRight {
+    margin-bottom: 35px;
+  }
+  .botLeft {
+    margin-bottom: 35px;
+  }
+  .botRight {
+    margin-bottom: 35px;
+  }
 }

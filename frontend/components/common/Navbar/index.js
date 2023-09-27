@@ -6,7 +6,7 @@ import routes from "../../../routes";
 
 import styles from "./navbar.module.css";
 
-const navRoutes = [routes.Today_APPOINTMENTS, routes.SLOTS, routes.REPORTS];
+const navRoutes = [routes.PATIENT_HOME, routes.SLOTS, routes.REPORTS];
 
 const Navbar = () => {
   const router = useRouter();
@@ -17,7 +17,11 @@ const Navbar = () => {
       onChange={(index) => {
         router.push(navRoutes[index]);
       }}
-      defaultIndex={navRoutes.indexOf(router.pathname)}
+      index={
+        navRoutes.includes(router.pathname)
+          ? navRoutes.indexOf(router.pathname)
+          : navRoutes.length
+      }
     >
       <TabList style={{ border: "1px solid transparent" }}>
         <Tab className={styles.tab}>Appointments</Tab>

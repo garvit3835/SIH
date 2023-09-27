@@ -1,0 +1,20 @@
+.loading {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main {
+  margin: 2rem auto;
+}
+
+.docBasic {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.docBasicMain {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}

@@ -21,7 +21,7 @@ export const login = (username, password) => {
     });
 };
 
-export const credSign = (email, password) => {
+export const credSignDoc = (email, password) => {
   axios({
     method: "post",
     url: getURL("/doctors/signup/creds"),

@@ -63,7 +63,7 @@ const Signup = () => {
       </Center>
       <div className={cn(styles.right, styles[`right-${role}`])}>
         <div className={styles.logoContainer}>
-          <img src="/images/tempLogo.png" width={"5%"}></img>
+          <img src="/images/Logo.svg" width={"5%"}></img>
           <h1 className={styles.title}>MediBridge</h1>
         </div>
 

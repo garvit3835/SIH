@@ -22,7 +22,9 @@ import {
 import styles from "pages/auth/signup/signup.module.css";
 import { useState } from "react";
 import routes from "../../routes";
-
+import { login } from "@/api/patients";
+import {login as docLogin}   from '@/api/doctors'
+import {login as hospitalLogin}   from '@/api/hospital'
 const LoginForm = ({ role }) => {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -54,13 +56,31 @@ const LoginForm = ({ role }) => {
   }
   const handleSubmit = ()=> {
     if(!validate(email)) {
+      console.log(validate(email))
       changeEmailError(true,'invalid email','Please enter a valid email')
+      return
+    }
+    else {
+      changeEmailError(false,'','')
+    }
+    if(pass==='') {
+      changePassError(true,'invalid password','Please add a valid password')
       return
     }
     else {
       changePassError(false,'','');
       changeEmailError(false,'','')
+      console.log(emailError.msg)
       // API CALL
+      if(role==='patient') {
+        login(email,pass)
+      }
+      else if(role==='doctor') {
+        docLogin(email,pass)
+      }
+      else {
+        hospitalLogin(email,pass)
+      }
     }
   }
   return (
@@ -83,6 +103,7 @@ const LoginForm = ({ role }) => {
             }
             _placeholder={{ color: "inherit" }}
             className={styles.inp}
+            onChange={(ev)=>setEmail(ev.target.value)}
           />
         </InputGroup>
         {!emailError.status ? (
@@ -109,6 +130,7 @@ const LoginForm = ({ role }) => {
             }
             _placeholder={{ color: "inherit" }}
             className={styles.inp}
+            onChange={(ev)=>setPass(ev.target.value)}
           />
           <InputRightElement
             onClick={() => {
