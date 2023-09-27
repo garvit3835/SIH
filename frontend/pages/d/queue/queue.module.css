@@ -1,0 +1,32 @@
+.loading {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main {
+  margin: 2rem auto;
+}
+
+.mainList {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+.doc {
+  background-color: var(--chakra-colors-purple-50);
+  border: 1px solid var(--chakra-colors-purple-100);
+}
+
+.docAvatar {
+  margin: auto 1rem;
+}
+
+.bookBtn {
+  background-color: var(--chakra-colors-purple-100);
+  color: black;
+}
+
+.bookBtn:hover {
+  background-color: var(--chakra-colors-purple-200);
+}

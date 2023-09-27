@@ -8,7 +8,7 @@ import styles from "./navbar.module.css";
 
 const navRoutes = [
   routes.CURRENT_APPOINTMENTS,
-  routes.DOCTOR_DATA,
+  routes.QUEUE,
   routes.APPOINTMENT_TRACK,
 ];
 
@@ -25,7 +25,7 @@ const AdminNavbar = () => {
     >
       <TabList style={{ border: "1px solid transparent" }}>
         <Tab className={styles.tab}>Current Appointments</Tab>
-        <Tab className={styles.tab}>Doctor Data</Tab>
+        <Tab className={styles.tab}>Patient Queue</Tab>
         <Tab className={styles.tab}>Track Appointments</Tab>
       </TabList>
     </Tabs>
