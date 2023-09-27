@@ -29,7 +29,7 @@ import styles from "pages/auth/signup/signup.module.css";
 import { AnimatePresence, easeOut, motion } from "framer-motion";
 
 import LoginForm from "../../../components/auth/LoginForm";
-const Signup = () => {
+const Login = () => {
   const roles = ["patient", "doctor", "hospital"];
 
   const [role, setRole] = useState(roles[0]);
@@ -65,7 +65,7 @@ const Signup = () => {
       </Center>
       <div className={cn(styles.right, styles[`right-${role}`])}>
         <div className={styles.logoContainer}>
-          <img src="/images/tempLogo.png" width={"5%"}></img>
+          <img src="/images/Logo.svg" width={"5%"}></img>
           <h1 className={styles.title}>MediBridge</h1>
         </div>
 
@@ -109,4 +109,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

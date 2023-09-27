@@ -1,0 +1,27 @@
+.appoint {
+  background-color: var(--chakra-colors-purple-50);
+  border: 1px solid var(--chakra-colors-purple-100);
+  padding: 1rem;
+}
+
+.diagnosed {
+  background-color: var(--chakra-colors-green-50);
+  border: 1px solid var(--chakra-colors-green-100);
+}
+
+.appoint.current {
+  margin-bottom: 2rem;
+}
+
+.docAvatar {
+  margin: auto 1rem;
+}
+
+.docBtn {
+  background-color: var(--chakra-colors-purple-100);
+  color: black;
+}
+
+.docBtn:hover {
+  background-color: var(--chakra-colors-purple-200);
+}

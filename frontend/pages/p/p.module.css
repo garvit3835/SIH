@@ -1,0 +1,42 @@
+.loading {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main {
+  margin: 2rem auto;
+}
+
+.mainList {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+.bookBtn {
+  background-color: var(--clr-primary-50);
+  border: 1px solid var(--clr-primary-100);
+}
+
+.appoint {
+  background-color: var(--clr-primary-50);
+  border: 1px solid var(--clr-primary-100);
+  padding: 1rem;
+}
+
+.appoint.current {
+  margin-bottom: 2rem;
+}
+
+.docAvatar {
+  margin: auto 1rem;
+}
+
+.docBtn {
+  background-color: var(--chakra-colors-red-100);
+  color: black;
+}
+
+.docBtn:hover {
+  background-color: var(--clr-primary-200);
+}

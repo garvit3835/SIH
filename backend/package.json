@@ -17,6 +17,7 @@
     "jsonwebtoken": "^9.0.2",
     "nbconvert": "^7.6.0",
     "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.5",
     "path": "^0.12.7",
     "pg": "^8.11.3",
     "pg-promise": "^11.5.4"

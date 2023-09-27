@@ -30,8 +30,13 @@ import {
 import styles from "pages/auth/signup/signup.module.css";
 import { useEffect, useState } from "react";
 import routes from "../../routes";
+import { credSign } from "@/api/patients";
+import { credSignDoc } from "@/api/doctors";
+import { credSignHospital } from "@/api/hospital";
+import { useRouter } from "next/router";
 
 const SignupForm = ({ role }) => {
+  const router = useRouter()
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
@@ -66,6 +71,13 @@ const SignupForm = ({ role }) => {
       changeEmailError(true,'invalid email','Please enter a valid email')
       return
     }
+    else {
+      changeEmailError(false,'','')
+    }
+    if(pass==='') {
+      changePassError(true,'invalid password','Please add a valid password')
+      return
+    }
     if(pass!==confirmPass) {
       changePassError(true,'mismatch','Passwords didnt match')
       return
@@ -74,6 +86,28 @@ const SignupForm = ({ role }) => {
       changePassError(false,'','');
       changeEmailError(false,'','')
       // API CALL
+      if(role==='patient') {
+        const ans = credSign(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/auth/patientForm')
+        }
+      }
+      else if(role==='doctor') {
+        const ans =credSignDoc(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/d')
+        }
+      }
+      else {
+        console.log(role)
+        const ans = credSignHospital(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/auth/adminForm')
+        }
+      }
     }
   }
   return (

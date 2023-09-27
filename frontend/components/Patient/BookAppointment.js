@@ -24,6 +24,7 @@ import {
 } from '@chakra-ui/react'
 import { inherits } from 'util';
 import {useAppData} from '../context/AppContext'
+import { createAppointment } from '@/api/patients';
 
 const BookAppointment = () => {
     const { isLoading, enableLoader, disableLoader } = useAppData();
@@ -31,7 +32,7 @@ const BookAppointment = () => {
     const [load,setLoad] = useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [appointmentData,setAppointmentData] = useState({
-        prefix:"",
+        prefix:"Mr.",
         firstName: "",
         lastName: "",
         number: null,
@@ -70,6 +71,7 @@ const BookAppointment = () => {
         // console.log(appointmentData)
 
         // API CALL
+        createAppointment({d_id:123,h_id:456,desc:"hello world",time:"9.30pm",emergency:false,status:true,prescription:"abc"})
         setTimeout(() => {
             disableLoader()
         }, 3000);
@@ -84,7 +86,7 @@ const BookAppointment = () => {
                 <ModalOverlay />
                 <ModalContent>
                     <Flex className={styles.logoContainer}>
-                        <img src="/images/tempLogo.png" width={40}></img>
+                        <img src="/images/Logo.svg" width={40}></img>
                         <h1 className={styles.title}>MediBridge</h1>
                     </Flex>
                     <ModalHeader><Center marginTop={"65px"}>Book your Appointment</Center></ModalHeader>

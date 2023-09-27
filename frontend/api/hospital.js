@@ -2,7 +2,7 @@ import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
 import { getURL } from "./url";
 
-export const login = (username, password) => {
+export const login = async(username, password) => {
   axios({
     method: "post",
     url: getURL("/hospitals/login"),
@@ -14,14 +14,15 @@ export const login = (username, password) => {
     .then((res) => {
       if(res.status == 200){
         setCookies(res.data.token,'hospitalsID');
+        return true
       }
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 };
 
-export const credSign = (email, password) => {
+export const credSignHospital = async(email, password) => {
   axios({
     method: "post",
     url: getURL("/hospitals/signup/creds"),
@@ -33,6 +34,7 @@ export const credSign = (email, password) => {
     .then((res) => {
       if(res.status == 201){
         setCookies(res.data.token,'hospitalsID');
+        return true
       }
     })
     .catch((err) => {
@@ -43,6 +45,7 @@ export const credSign = (email, password) => {
 export const infoSign = ({
     name, number, address, latitude, longitude
 }) => {
+  console.log(name, number, address, latitude, longitude)
   axios({
     method: "post",
     url: getURL("/hospitals/signup/info"),
@@ -58,8 +61,9 @@ export const infoSign = ({
     },
   })
     .then((res) => {
+      console.log(res)
       if(res.status == 200){
-        // console.log(res.data.details)
+        console.log(res.data.details)
       }
     })
     .catch((err) => {

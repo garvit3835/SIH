@@ -7,7 +7,10 @@ import MedicalRecord from '../../../components/auth/MedicalRecord'
 import PatientLocation from '../../../components/auth/PatientLocation'
 import { wrap } from 'framer-motion'
 import cn from "classnames";
+import { infoSign } from '@/api/patients'
+import { useRouter } from 'next/router'
 const patientForm = () => {
+  const router = useRouter()
   const [page,changePage] = useState(0)
   const [load,setLoad] = useState(false)
   const [familyMember, setFamilyMember] = useState([])
@@ -32,12 +35,12 @@ const patientForm = () => {
   const handleSubmit = ()=> {
     setLoad(true);
     const name = FirstName + ' ' + lastName
-    const obj = {
-      name,phone,file,diseases,currentPos,familyMember
-    }
-    console.log(obj)
+    // console.log(phone)
+    infoSign({name,number:phone,gender:"male",family:familyMember,address:"xyz",latitude:currentPos.lat,longitude:currentPos.lng})
+    
     setTimeout(() => {
       setLoad(false)
+      router.push('/p')
     }, 2000);
     changePage(page+1)
   }
