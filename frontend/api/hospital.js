@@ -21,7 +21,7 @@ export const login = (username, password) => {
     });
 };
 
-export const credSignHospital = (email, password) => {
+export const credSignHospital = async(email, password) => {
   axios({
     method: "post",
     url: getURL("/hospitals/signup/creds"),
@@ -33,6 +33,7 @@ export const credSignHospital = (email, password) => {
     .then((res) => {
       if(res.status == 201){
         setCookies(res.data.token,'hospitalsID');
+        return true
       }
     })
     .catch((err) => {

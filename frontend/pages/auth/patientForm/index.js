@@ -8,7 +8,9 @@ import PatientLocation from '../../../components/auth/PatientLocation'
 import { wrap } from 'framer-motion'
 import cn from "classnames";
 import { infoSign } from '@/api/patients'
+import { useRouter } from 'next/router'
 const patientForm = () => {
+  const router = useRouter()
   const [page,changePage] = useState(0)
   const [load,setLoad] = useState(false)
   const [familyMember, setFamilyMember] = useState([])
@@ -38,6 +40,7 @@ const patientForm = () => {
     
     setTimeout(() => {
       setLoad(false)
+      router.push('/p')
     }, 2000);
     changePage(page+1)
   }

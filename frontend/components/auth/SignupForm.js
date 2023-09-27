@@ -33,8 +33,10 @@ import routes from "../../routes";
 import { credSign } from "@/api/patients";
 import { credSignDoc } from "@/api/doctors";
 import { credSignHospital } from "@/api/hospital";
+import { useRouter } from "next/router";
 
 const SignupForm = ({ role }) => {
+  const router = useRouter()
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
@@ -85,14 +87,26 @@ const SignupForm = ({ role }) => {
       changeEmailError(false,'','')
       // API CALL
       if(role==='patient') {
-        credSign(email,pass)
+        const ans = credSign(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/auth/patientForm')
+        }
       }
       else if(role==='doctor') {
-        credSignDoc(email,pass)
+        const ans =credSignDoc(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/d')
+        }
       }
       else {
         console.log(role)
-        credSignHospital(email,pass)
+        const ans = credSignHospital(email,pass)
+        if(ans) {
+          console.log(ans)
+          router.push('/auth/adminForm')
+        }
       }
     }
   }

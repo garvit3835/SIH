@@ -5,8 +5,10 @@ import styles from '../adminForm/adminForm.module.css'
 import AdminContact from '../../../components/auth/AdminContact'
 import cn from "classnames";
 import { infoSign } from '@/api/hospital'
+import { useRouter } from 'next/router'
 
 const adminForm = () => {
+  const router = useRouter()
     const [page,changePage] = useState(0)
     const [FirstName,setFirstName] = useState('')
     const [lastName,setLastName] = useState('')
@@ -32,6 +34,7 @@ const adminForm = () => {
         infoSign({name,number:phone,address:location,latitude:70,longitude:80})
         setTimeout(() => {
           setLoad(false);
+          router.push('/h')
         }, 2000);
       };
     

@@ -2,7 +2,6 @@ import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
 import { getURL } from "./url";
 
-
 export const login = (username, password) => {
   axios({
     method: "post",
@@ -13,8 +12,9 @@ export const login = (username, password) => {
     },
   })
     .then((res) => {
-      if(res.status == 201){
+      if(res.status == 200){
         setCookies(res.data.token,'patientID');
+        
       }
     })
     .catch((err) => {
@@ -23,6 +23,7 @@ export const login = (username, password) => {
 };
 
 export const credSign = async(email, password) => {
+  
   console.log(email,password)
   axios({
     method: "post",
@@ -33,10 +34,11 @@ export const credSign = async(email, password) => {
     },
   })
     .then((res) => {
-      console.log(res.data)
-      if(res.status === 200){
+      console.log(res.data.token)
+      if(res.status === 201){
         console.log("done")
         setCookies(res.data.token,'patientID');
+        return true
       }
     })
     .catch((err) => {
