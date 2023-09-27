@@ -2,10 +2,13 @@ const express = require('express')
 const app = express()
 const port = 3000
 const cors = require('cors');
+const cron = require("node-cron");
 
 const patientRouter = require('./routes/patients');
 const doctorRouter = require('./routes/doctors');
 const hospitalRouter = require('./routes/hospital');
+const update_doctor_slots = require('./services/cronjobs/update_doctor_slots');
+const update_appointments = require('./services/cronjobs/update_appointments');
 
 app.use(cors({
   origin : '*'
@@ -27,3 +30,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+cron.schedule("0 0 * * *", () => {
+  update_doctor_slots();
+  update_appointments();
+});

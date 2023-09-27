@@ -12,11 +12,14 @@ const increment_slot_bookings = async (s_id) => {
       client.release();
       return ({sucess: "Appointment added to slot!"});
     } else {
-      return ({error: "Slot Completely Booked!"})
+      client.release();
+      return ({ error: "Slot Completely Booked!" })
     }
   } catch (error) {
     console.error(error);
   }
 }
+
+// increment_slot_bookings(5)
 
 module.exports = increment_slot_bookings;

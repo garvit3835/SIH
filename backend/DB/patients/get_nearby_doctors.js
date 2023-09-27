@@ -48,6 +48,6 @@ const get_nearby_doctors = async (p_id, specialization) => {
 	}
 };
 
-// get_nearby_doctors(1, 1);
+// get_nearby_doctors(1, 2);
 
 module.exports = get_nearby_doctors;
