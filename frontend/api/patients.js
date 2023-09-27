@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getUserIdCookie, setCookies } from "./cookies";
+import { getURL } from "./url";
 
 export const login = (username, password) => {
   axios({
@@ -10,9 +11,9 @@ export const login = (username, password) => {
       password: password,
     },
   })
-    .then((ele) => {
-      if (ele) {
-        return ele;
+    .then((res) => {
+      if(res.status == 201){
+        setCookies(res.data.token,'patientID');
       }
     })
     .catch((err) => {
@@ -29,8 +30,10 @@ export const credSign = (email, password) => {
       password: password,
     },
   })
-    .then((ele) => {
-      setCookies(ele.data.token);
+    .then((res) => {
+      if(res.status == 201){
+        setCookies(res.data.token,'patientID');
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -38,52 +41,118 @@ export const credSign = (email, password) => {
 };
 
 export const infoSign = ({
-  name,
-  phone,
-  family,
-  policy,
-  address,
-  location,
-  diseases,
+  name, number, gender, family, address, latitude, longitude
 }) => {
   axios({
     method: "post",
     url: getURL("/patients/signup/info"),
     data: {
-        name : name,
-        phone : phone,
-        family : family,
-        policy : policy,
-        address : address,
-        location : location,
-        diseases : diseases,
+      name: name,
+      number: number,
+      family: family,
+      address: address,
+      latitude : latitude,
+      longitude : longitude,
     },
     headers: {
-      Authorization: `Bearer ${getUserIdCookie}`,
+      Authorization: `Bearer ${getUserIdCookie('patientID')}`,
     },
   })
-    .then((ele) => {
-      console.log(ele);
+    .then((res) => {
+      if(res.status == 200){
+        // console.log(res.data.details)
+      }
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-export const getDetails = ()=>{
-    axios({
-        method: "get",
-        url: getURL("/patients/details/all"),
-        headers: {
-          Authorization: `Bearer ${getUserIdCookie}`,
-        },
-      })
-        .then((ele) => {
-          console.log(ele);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-}
+export const getDetails = () => {
+  axios({
+    method: "get",
+    url: getURL("/patients/details/all"),
+    headers: {
+      Authorization: `Bearer ${getUserIdCookie('patientID')}`,
+    },
+  })
+    .then((res) => {
+      if(res.status == 200){
+        console.log(res.data.details)
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
+export const familyDetails = () => {
+  axios({
+    method: "get",
+    url: getURL("/patients/details/family"),
+    headers: {
+      Authorization: `Bearer ${getUserIdCookie('patientID')}`,
+    },
+  })
+    .then((res) => {
+      if(res.status == 200){
+        console.log(res.data.family)
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
+export const currentAppointment = () => {
+  axios({
+    method: "get",
+    url: getURL("/patients/appointments/current"),
+    headers: {
+      Authorization: `Bearer ${getUserIdCookie('patientID')}`,
+    },
+  })
+    .then((res) => {
+      if(res.status == 200){
+        console.log(res.data.appointments)
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const createAppointment = ({
+  d_id,
+  h_id,
+  desc,
+  time,
+  emergency,
+  status,
+  prescription
+}) => {
+  axios({
+    method: "post",
+    url: getURL("/patients/appointments/create"),
+    headers: {
+      Authorization: `Bearer ${getUserIdCookie('patientID')}`,
+    },
+    data: {
+      d_id: d_id,
+      h_id: h_id,
+      description: desc,
+      time: time,
+      is_emergency: emergency,
+      status: status,
+      prescription: prescription,
+    },
+  })
+    .then((res) => {
+      if(res.status == 200){
+        console.log(res.data.appointments)
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

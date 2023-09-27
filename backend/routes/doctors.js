@@ -30,7 +30,7 @@ router.post('/signup/creds',(req,res)=>{
 
     encrypt(password,15).then((pass)=>{
         console.log("Hashed: ",pass);
-        insert_patient_creds(email,pass).then((d_id)=>{
+        insert_doctor_creds(email,pass).then((d_id)=>{
             assignToken(d_id,'4h').then((token)=>{
                 res.status(201).json({message:'New Login Created Successfully',token:token})
             })
@@ -60,7 +60,7 @@ router.get('/details/all',checkToken,(req,res)=>{
 router.get('/details/appointments',checkToken,(req,res)=>{
     const d_id = res.locals.authorization;
     get_appointments(d_id).then((result)=>{
-        res.status(200).json({message:"Appointments fetched",details:result});
+        res.status(200).json({message:"Appointments fetched",appointments:result});
     }).catch((err)=>{
         res.status(501).json({message:'Error Encountered'})
     })
