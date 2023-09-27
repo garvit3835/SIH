@@ -1,11 +1,12 @@
 const nodemailer = require("nodemailer");
+require('dotenv').config();
 
 const mail_appointment_details = async(p_mail, appointment_details) => {
 		let mailTransporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
                 user: "garvit1189@gmail.com",
-                pass: "phsi fztg gelq hvhf",
+                pass: process.env.MAIL_PASS,
             },
         });
 
