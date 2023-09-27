@@ -8,13 +8,13 @@ const insert_doctor_creds = async (username, password) => {
 		const client = await pool.connect();
 		const result = await client.query(query, values);
     client.release();
-		return result.rows;
+		return ({success: "Doctor credentials added!"})
 	} catch (error) {
 		console.error(error);
 	}
 };
 
 // insert_doctor_creds('', '')
-// insert_doctor_creds('ak234', 'sfdsfs')
+// insert_doctor_creds('garvit123', 'test')
 
 module.exports = insert_doctor_creds;

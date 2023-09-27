@@ -9,12 +9,12 @@ const insert_patient_creds = async (username, password) => {
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
-    return result.rows;
+    return ({success: "Patient Credentials Added!"});
   } catch (error) {
     console.error(error);
   }
 };
 
-// insert_patient_creds('sdfds', 'sdfdsf')
+// insert_patient_creds('garvit1189', 'test1189')
 
 module.exports = insert_patient_creds;

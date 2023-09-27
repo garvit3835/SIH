@@ -13,4 +13,6 @@ const decrement_slot_bookings = async (s_id) => {
 	}
 };
 
+// decrement_slot_bookings(5)
+
 module.exports = decrement_slot_bookings;

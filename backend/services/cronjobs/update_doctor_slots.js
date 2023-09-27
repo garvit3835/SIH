@@ -1,4 +1,3 @@
-const cron = require("node-cron");
 const pool = require("../../config/connect_db");
 
 const update_doctor_slots = async () => {
@@ -12,17 +11,17 @@ const update_doctor_slots = async () => {
 	const updateQuery = `
         UPDATE doctor_slots
         SET start = start + interval '7 days'
-        WHERE is_repeat = true AND start < $1;
+        WHERE is_repeat = true AND start < NOW();
       `;
 
 	const deleteQuery = `
         DELETE FROM doctor_slots
-        WHERE is_repeat = false AND start < $1;
+        WHERE is_repeat = false AND start < NOW();
       `;
 	try {
 		const client = await pool.connect();
-		await client.query(updateQuery, [midnightToday]);
-		await client.query(deleteQuery, [midnightToday]);
+		await client.query(updateQuery);
+		await client.query(deleteQuery);
 		client.release();
 		console.log("Old doctor slots deleted/updated!");
 	} catch (error) {
@@ -30,6 +29,6 @@ const update_doctor_slots = async () => {
 	}
 };
 
-cron.schedule("0 0 * * *", () => {
-	update_doctor_slots();
-});
+update_doctor_slots()
+
+module.exports = update_doctor_slots;

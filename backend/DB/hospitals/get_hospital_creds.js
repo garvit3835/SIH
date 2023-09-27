@@ -7,10 +7,12 @@ const get_hospital_creds = async (username) => {
     const client = await pool.connect();
     const result = await client.query(query, values);
     client.release();
+    // console.log(result.rows[0])
     return result.rows[0];
   } catch (error) {
     console.error(error);
   }
 };
+// get_hospital_creds("max12343")
 
 module.exports = get_hospital_creds;

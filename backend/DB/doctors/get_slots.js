@@ -17,10 +17,13 @@ const get_slots = async (d_id) => {
     const client = await pool.connect();
     const result = await client.query(query, values)
     client.release();
+    // console.log(result.rows)
     return result.rows;
   } catch (error) {
     console.error(error);
   }
 };
+
+// get_slots(3)
 
 module.exports = get_slots;
