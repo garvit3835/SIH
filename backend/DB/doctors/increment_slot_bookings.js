@@ -5,20 +5,25 @@ const increment_slot_bookings = async (s_id) => {
   try {
     const client = await pool.connect();
     const { rows } = await client.query(selectQuery, [s_id]);
-    const slot = rows[0]
-    if (slot.booked_patients < slot.max_patients) {
-      const updateQuery = 'UPDATE doctor_slots SET booked_patients = booked_patients + 1 WHERE s_id = $1';
-      const result = await client.query(updateQuery, [s_id])
-      client.release();
-      return ({sucess: "Appointment added to slot!"});
+    const slot = rows[0];
+    client.release();
+
+    if (slot) {
+      if (slot.booked_patients < slot.max_patients) {
+        const updateQuery = 'UPDATE doctor_slots SET booked_patients = booked_patients + 1 WHERE s_id = $1';
+        const result = await client.query(updateQuery, [s_id]);
+        return { success: "Appointment added to slot!" };
+      } else {
+        return { error: "Slot Completely Booked!" };
+      }
     } else {
-      client.release();
-      return ({ error: "Slot Completely Booked!" })
+      return { error: "Slot not found!" };
     }
   } catch (error) {
     console.error(error);
   }
 }
+
 
 // increment_slot_bookings(5)
 
