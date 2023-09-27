@@ -4,24 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./doc.module.css";
 import { Avatar, Container, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-
-const tempData = [
-  {
-    id: 1,
-    name: "Dr. John Doe",
-    specialization: "Cardiologist",
-    hospital: "XYZ Hospital",
-    image: "doctor1.jpg", // You can place the doctor's image in the public folder
-  },
-  {
-    id: 2,
-    name: "Dr. Jane Smith",
-    specialization: "Pediatrician",
-    hospital: "ABC Children's Hospital",
-    image: "doctor2.jpg",
-  },
-  // Add more doctors as needed
-];
+import { doctorsList } from "@/api/data";
 
 export default function Home() {
   const router = useRouter();
@@ -29,8 +12,8 @@ export default function Home() {
   const [doctor, setDoctor] = useState();
 
   useEffect(() => {
-    setDoctor(tempData.find((doctor) => doctor.id == router.query.id));
-  }, [tempData, router.query.id]);
+    setDoctor(doctorsList.find((doctor) => doctor.id == router.query.id));
+  }, [doctorsList, router.query.id]);
 
   if (!doctor) {
     return <div className={styles.loading}>Loading...</div>;

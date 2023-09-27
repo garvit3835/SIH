@@ -4,51 +4,7 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { Container, Heading } from "@chakra-ui/react";
 import AppointmentCard from "@/components/doctor/AppointmentCard";
 import { useRouter } from "next/router";
-
-const apiDummy = [
-  {
-    a_id: 1,
-    patient: 101,
-    doctor: 201,
-    hospital: 301,
-    description: "Regular Checkup",
-    time: "2023-09-20T10:00:00.000Z",
-    is_emergency: 0,
-    status: 0,
-    prescription: null,
-    patient_name: "John Doe",
-    hospital_name: "Sample Hospital 1",
-    hospital_address: "123 Main St, Sample City, USA",
-  },
-  {
-    a_id: 2,
-    patient: 102,
-    doctor: 201,
-    hospital: 302,
-    description: "Dental Cleaning",
-    time: "2023-09-20T14:30:00.000Z",
-    is_emergency: 0,
-    status: -1,
-    prescription: null,
-    patient_name: "Alice Smith",
-    hospital_name: "Sample Hospital 2",
-    hospital_address: "456 Elm St, Sample Town, USA",
-  },
-  {
-    a_id: 3,
-    patient: 103,
-    doctor: 202,
-    hospital: 301,
-    description: "Eye Examination",
-    time: "2023-09-21T11:15:00.000Z",
-    is_emergency: 0,
-    status: 1,
-    prescription: null,
-    patient_name: "Bob Johnson",
-    hospital_name: "Sample Hospital 1",
-    hospital_address: "123 Main St, Sample City, USA",
-  },
-];
+import { doctorAppointments } from "@/api/data";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -58,11 +14,11 @@ export default function Home() {
   const filteredData = useMemo(
     () =>
       data.filter((d) => {
-        console.log(
-          d.patient_name
-            .toLowerCase()
-            .indexOf(decodeURIComponent(router.query.search).toLowerCase())
-        );
+        // console.log(
+        //   d.patient_name
+        //     .toLowerCase()
+        //     .indexOf(decodeURIComponent(router.query.search).toLowerCase())
+        // );
 
         return router.query.search
           ? d.patient_name
@@ -75,8 +31,8 @@ export default function Home() {
   );
 
   useEffect(() => {
-    setData(apiDummy.filter((app) => app.status !== 0));
-    setCurrentApp(apiDummy.filter((app) => app.status === 0));
+    setData(doctorAppointments.filter((app) => app.status !== 0));
+    setCurrentApp(doctorAppointments.filter((app) => app.status === 0));
   }, []);
 
   if (!data) {

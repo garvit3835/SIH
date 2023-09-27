@@ -8,6 +8,8 @@ const routes = {
   CURRENT_APPOINTMENTS: "/d",
   DOCTOR_DATA: "/d/docData",
   APPOINTMENT_TRACK: "/d/trackAppointments",
+  SLOTS: "/d/slots",
+  QUEUE: "/d/queue",
 };
 
 export const protectedRoutes = [routes.HOME];

@@ -15,25 +15,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { doctorsList } from "@/api/data";
 // import Image from "next/image";
-
-const tempData = [
-  {
-    id: 1,
-    name: "Dr. John Doe",
-    specialization: "Cardiologist",
-    hospital: "XYZ Hospital",
-    image: "doctor1.jpg", // You can place the doctor's image in the public folder
-  },
-  {
-    id: 2,
-    name: "Dr. Jane Smith",
-    specialization: "Pediatrician",
-    hospital: "ABC Children's Hospital",
-    image: "doctor2.jpg",
-  },
-  // Add more doctors as needed
-];
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -42,11 +25,11 @@ export default function Home() {
   const filteredData = useMemo(
     () =>
       data.filter((d) => {
-        console.log(
-          d.name
-            .toLowerCase()
-            .indexOf(decodeURIComponent(router.query.search).toLowerCase())
-        );
+        // console.log(
+        //   d.name
+        //     .toLowerCase()
+        //     .indexOf(decodeURIComponent(router.query.search).toLowerCase())
+        // );
 
         return router.query.search
           ? d.name
@@ -59,7 +42,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    setData(tempData);
+    setData(doctorsList);
   }, []);
 
   if (!data) {
