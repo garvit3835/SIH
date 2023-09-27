@@ -106,7 +106,7 @@ const AddDoc = () => {
         <ModalOverlay />
         <ModalContent>
           <Flex className={styles.logoContainer}>
-            <img src="/images/tempLogo.png" width={40}></img>
+            <img src="/images/Logo.svg" width={40}></img>
             <h1 className={styles.title}>MediBridge</h1>
           </Flex>
           <ModalHeader><Center marginTop={"65px"}>Add a Doctor</Center></ModalHeader>
