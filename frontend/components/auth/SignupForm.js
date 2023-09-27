@@ -69,6 +69,9 @@ const SignupForm = ({ role }) => {
       changeEmailError(true,'invalid email','Please enter a valid email')
       return
     }
+    else {
+      changeEmailError(false,'','')
+    }
     if(pass==='') {
       changePassError(true,'invalid password','Please add a valid password')
       return
